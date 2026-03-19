@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="id" class=" layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-skin="bordered" data-assets-path="https://cdn.rumahotp.com/assets/" data-template="rumah-otp" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Catatan Aktifitas - RumahOTP</title>
+
+    <link rel="canonical" href="https://www.rumahotp.com" />
+    <link rel="icon" type="image/x-icon" href="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/css/core-custom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/css/demo.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/skeleton/skeleton.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/helpers.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/template-customizer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/config.js"></script>
+    <style>
+        :root {
+            --dynamic-padding: 58px;
+        }
+
+        .card {
+            border: 1px solid var(--bs-gray-200) !important;
+        }
+
+        .btn-nav-bordered {
+            border: 2px solid var(--bs-gray-200) !important;
+        }
+
+        .btn-nav-bordered.active {
+            border: 2px solid #007BFF !important;
+            color: #007BFF;
+        }
+
+        .btn-filter-select.active {
+            background-color: color-mix(in sRGB, var(--bs-paper-bg) var(--bs-bg-label-tint-amount), #007BFF) !important;
+        }
+
+        .no-style,
+        .no-style-input {
+            height: 38px;
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+            transition: none !important;
+        }
+
+        .input-group .form-control.no-style-input {
+            border-left: 0 !important;
+        }
+
+        .input-group .input-group-text.no-style {
+            border-right: 0 !important;
+        }
+
+        .input-group .form-control:focus {
+            box-shadow: none !important;
+        }
+
+        .date-picker-container {
+            width: 90%;
+            overflow: hidden;
+        }
+
+        .date-picker-wrapper {
+            display: flex;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 300%;
+        }
+
+        .date-month-section {
+            width: 33.333%;
+            flex-shrink: 0;
+            padding: 0 15px;
+        }
+
+        .date-header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .date-nav-button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #007BFF;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .date-nav-button:hover {
+            background-color: #f5f5f5;
+            border-color: #007BFF;
+        }
+
+        .date-nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .date-nav-button.disabled:hover {
+            background: transparent;
+            border-color: #e0e0e0;
+        }
+
+        .date-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+        }
+
+        .date-day-header {
+            text-align: center;
+            padding: 8px 0;
+            font-weight: 500;
+            color: var(--bs-secondary);
+            font-size: 0.85rem;
+        }
+
+        .date-day {
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--bs-secondary);
+            transition: all 0.2s;
+            font-size: 0.8rem;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .date-day:hover {
+            background-color: #f0f0f0;
+        }
+
+        .date-day.selected {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .date-day.other-month {
+            color: #ccc;
+        }
+
+        .date-day.today {
+            border: 1px solid #007BFF;
+        }
+
+        .date-day.disabled {
+            color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .date-day.disabled:hover {
+            background-color: transparent;
+        }
+
+        #popup-filter-confirm:disabled {
+            background: var(--bs-secondary) !important;
+            color: white !important;
+        }
+
+        .custom-dashed {
+            background-image: linear-gradient(to right, var(--bs-gray-200) 0%, var(--bs-gray-200) 50%, transparent 50%, transparent 100%);
+            background-size: 14px 2px;
+            background-position: top left;
+            background-repeat: repeat-x;
+            padding-top: 2px;
+        }
+
+        .transaction-tracking {
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .tracking-step {
+            display: flex;
+            position: relative;
+        }
+
+        .step-indicator {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        .step-circle {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .step-line {
+            width: 2px;
+            height: 24px;
+            background-color: var(--bs-secondary);
+            position: absolute;
+            top: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tracking-step:last-child .step-line {
+            display: none !important;
+        }
+
+        .card-payment-confirm {
+            background-image: url('https://cdn.rumahotp.com/assets/img/front-pages/backgrounds/watermark-light.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        [data-bs-theme="dark"] .card-payment-confirm {
+            background-image: url('https://cdn.rumahotp.com/assets/img/front-pages/backgrounds/watermark-dark.png');
+        }
+
+        html[data-skin="bordered"] .layout-navbar {
+          border: 0 !important;
+        }
+
+        html[data-skin="bordered"] .layout-navbar {
+          box-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+        <div class="layout-container">
+            <nav class="layout-navbar navbar navbar-expand-xl align-items-stretch" style="height: auto;">
+                <div class="container-xxl p-0">
+                    <div class="d-flex flex-column w-100">
+                        <div class="d-flex align-items-center py-2" style="min-height: 56px;">
+                            <i class="bx bx-chevron-left fs-xlarge fw-bold text-solid-theme ms-4" style="cursor: pointer;" onclick="history.back()"></i>
+                            <div class="position-absolute start-50 translate-middle-x">
+                                <span class="text-solid-theme fw-bold fs-6">Catatan Aktifitas</span>
+                            </div>
+                        </div>
+                        <div class="position-relative mb-1">
+                            <div class="position-absolute start-0 top-0 h-100 d-flex align-items-center ps-3 z-1" style="background-color: var(--bs-paper-bg);">
+                                <div class="menu-item" id="popup-filter-click">
+                                    <button class="btn btn-nav-bordered menu-link fw-bold fs-4 px-3 py-2 rounded-pill" data-bs-toggle="offcanvas" data-bs-target="#popup-filter">
+                                        <i class="bx bx-custom"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div style="overflow-x: auto; white-space: nowrap; scrollbar-width: none; -ms-overflow-style: none; padding-left: var(--dynamic-padding)">
+                                <div class="nav nav-tabs d-inline-flex align-items-center gap-2 p-3 ps-2" style="min-width: max-content;">
+                                    <div class="menu-item">
+                                        <button class="btn btn-nav-bordered menu-link active fw-bold fs-9 px-4 py-2_5 rounded-pill" id="tab-activity" data-bs-toggle="tab" data-bs-target="#content-activity" role="tab" aria-controls="content-activity" aria-selected="true" onclick="selectFilter('activity');">Aktifitas</button>
+                                    </div>
+                                    <div class="menu-item">
+                                        <button class="btn btn-nav-bordered menu-link fw-bold fs-9 px-4 py-2_5 rounded-pill" id="tab-deposit" data-bs-toggle="tab" data-bs-target="#content-deposit" role="tab" aria-controls="content-deposit" onclick="selectFilter('deposit');">Deposit</button>
+                                    </div>
+                                    <div class="menu-item">
+                                        <button class="btn btn-nav-bordered menu-link fw-bold fs-9 px-4 py-2_5 rounded-pill" id="tab-numbers" data-bs-toggle="tab" data-bs-target="#content-numbers" role="tab" aria-controls="content-numbers" onclick="selectFilter('numbers');">Numbers</button>
+                                    </div>
+                                    <div class="menu-item">
+                                        <button class="btn btn-nav-bordered fw-bold fs-9 px-4 py-2_5 rounded-pill" id="tab-transaksi" data-bs-toggle="tab" data-bs-target="#content-transaksi" role="tab" aria-controls="content-transaksi" onclick="selectFilter('transaksi');">Transaksi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div style="overflow-x: auto; white-space: nowrap; scrollbar-width: none; -ms-overflow-style: none;">
+                                <div class="gap-2 px-4" id="popup-filter-bar"></div>
+                            </div>
+                            <div class="px-4">
+                                <div class="text-primary fw-bold fs-7 mb-3 d-none" id="popup-filter-btn" onclick="selectFilter(setup.current);">Atur Ulang</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="layout-page">
+                <div class="content-wrapper pt-0" style="background-color: var(--bs-paper-bg) !important;">
+                    <div class="container-xxl flex-grow-1">
+                        <div class="tab-content p-0">
+                            <div class="tab-pane fade show active" id="content-activity">
+                                <div class="row g-2 mb-4" id="content-activity-list"></div>
+                            </div>
+                            <div class="tab-pane fade" id="content-deposit">
+                                <div class="row g-3 mb-4" id="content-deposit-list"></div>
+                            </div>
+                            <div class="tab-pane fade" id="content-numbers">
+                                <div class="row g-2 mb-4" id="content-numbers-list"></div>
+                            </div>
+                            <div class="tab-pane fade" id="content-transaksi">
+                                <div class="row g-2 mb-4" id="content-transaksi-list"></div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="popup-filter" aria-labelledby="popup-filter-label" data-bs-focus="false" style="height: 55vh; min-height: 55vh; border-top-left-radius: 30px; border-top-right-radius: 30px; width: 100%; max-width: 500px; margin: 0 auto; left: 0; right: 0;">
+                            <div id="popup-filter-header">
+                                <div class="offcanvas-header d-flex justify-content-between align-items-center">
+                                    <div class="fw-bold text-solid-theme fs-6">Filter</div>
+                                    <i class="bx bx-x text-solid-theme fs-6" data-bs-dismiss="offcanvas"></i>
+                                </div>
+                            </div>
+                            <div class="offcanvas-body mt-0 pt-4">
+                                <div class="d-flex align-items-center mb-3" id="popup-filter-type">
+                                    <i class="bx bx-copy fs-7 text-solid-theme"></i>
+                                    <div class="text-solid-theme fs-7 fw-bold ms-1">Category</div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-6" id="popup-filter-button">
+                                    <button type="button" class="btn btn-nav-bordered btn-sm btn-filter-select rounded-pill fs-tiny" onclick="selectButton(this, 'auth', 'activity');">auth</button>
+                                    <button type="button" class="btn btn-nav-bordered btn-sm btn-filter-select rounded-pill fs-tiny" onclick="selectButton(this, 'payout', 'activity');">payout</button>
+                                    <button type="button" class="btn btn-nav-bordered btn-sm btn-filter-select rounded-pill fs-tiny" onclick="selectButton(this, 'payin', 'activity');">payin</button>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bx bx-calendar-alt fs-7 text-solid-theme"></i>
+                                    <div class="text-solid-theme fs-7 fw-bold ms-1">Tanggal</div>
+                                </div>
+                                <div class="text-solid-theme fs-9 fw-bold mb-1">Tanggal Mulai</div>
+                                <div class="input-group rounded-3 mb-3 border" style="background-color: var(--bs-paper-bg);">
+                                    <input type="text" class="form-control text-solid-theme no-style-input" autofocus="false" id="input-tanggal-from" placeholder="DD/MM/YYYY" readonly>
+                                    <span class="input-group-text no-style ps-3 pe-4" style="min-width: 44px; cursor: pointer;" onclick="openDatePicker('from')">
+                                        <i class="bx bx-calendar fs-7"></i>
+                                    </span>
+                                </div>
+                                <div class="text-solid-theme fs-9 fw-bold mb-1">Tanggal Akhir</div>
+                                <div class="input-group rounded-3 border" style="background-color: var(--bs-paper-bg);">
+                                    <input type="text" class="form-control text-solid-theme no-style-input" autofocus="false" id="input-tanggal-to" placeholder="DD/MM/YYYY" readonly>
+                                    <span class="input-group-text no-style ps-3 pe-4" style="min-width: 44px; cursor: pointer;" onclick="openDatePicker('to')">
+                                        <i class="bx bx-calendar fs-7"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="offcanvas-footer p-4">
+                                <div class="d-flex align-items-center gap-2">
+                                    <button type="button" class="btn bg-label-secondary text-solid-theme fs-7 rounded-pill w-100 fw-bold" style="height: 40px;" data-bs-dismiss="offcanvas" onclick="selectFilter(setup.current);">Atur Ulang</button>
+                                    <button type="button" class="btn bg-solid-primary text-white fs-7 rounded-pill w-100 fw-bold" style="height: 40px;" id="popup-filter-confirm" data-bs-dismiss="offcanvas">Terapkan</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="popup-tanggal-from" aria-labelledby="popup-tanggal-from-label" data-bs-focus="false" style="height: 55vh; min-height: 55vh; border-top-left-radius: 30px; border-top-right-radius: 30px; width: 100%; max-width: 500px; margin: 0 auto; left: 0; right: 0;">
+                            <div id="popup-tanggal-from-header">
+                                <div class="offcanvas-header d-flex justify-content-between align-items-center">
+                                    <div class="fw-bold text-solid-theme fs-6">Pilih Tanggal Mulai</div>
+                                    <i class="bx bx-x text-solid-theme fs-6" data-bs-dismiss="offcanvas"></i>
+                                </div>
+                            </div>
+                            <div class="offcanvas-body d-flex justify-content-center p-0">
+                                <div class="date-picker-container" id="date-picker-from"></div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="popup-tanggal-to" aria-labelledby="popup-tanggal-to-label" data-bs-focus="false" style="height: 50vh; min-height: 50vh; border-top-left-radius: 30px; border-top-right-radius: 30px; width: 100%; max-width: 500px; margin: 0 auto; left: 0; right: 0;">
+                            <div id="popup-tanggal-to-header">
+                                <div class="offcanvas-header d-flex justify-content-between align-items-center">
+                                    <div class="fw-bold text-solid-theme fs-6">Pilih Tanggal Akhir</div>
+                                    <i class="bx bx-x text-solid-theme fs-6" data-bs-dismiss="offcanvas"></i>
+                                </div>
+                            </div>
+                            <div class="offcanvas-body d-flex justify-content-center p-0">
+                                <div class="date-picker-container" id="date-picker-to"></div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="invoice_payment" aria-labelledby="invoice_payment" style="height: 100vh; border-radius: 0; overflow: hidden;">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+                                <div style="background-image: url('https://cdn.rumahotp.com/assets/img/front-pages/backgrounds/bg-receipt.png'); background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; aspect-ratio: 1/1; max-width: 100vw; display: flex; align-items: center; justify-content: center;"></div>
+                            </div>
+                            <div style="position: relative; height: 100%; overflow-y: auto; z-index: 1;">
+                                <div style="position: relative; height: 350px;">
+                                    <div class="d-flex flex-column align-items-center" style="position: absolute; top: 35px; left: 0; right: 0; text-align: center;">
+                                        <img id="invoice-offcanvas-header-icons" src="https://cdn.rumahotp.com/assets/img/icons/misc/clock-circle.png" alt="Icon" style="width: 90px; height: 90px; border-radius: 50%; margin-bottom: 15px;">
+                                        <div class="d-flex flex-column">
+                                            <strong id="invoice-offcanvas-header-title" class="fw-bold text-white mb-0_5" style="font-size: 1.155rem;"></strong>
+                                            <span id="invoice-offcanvas-header-date" class="text-white fw-light"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="offcanvas-body" style="position: relative; margin-top: -135px; margin-bottom: 30px;">
+                                    <div class="card card-payment-confirm p-4 mb-4" style="border-radius: 18px 18px 10px 10px; background-color: var(--bs-paper-bg);">
+                                        <div class="card-body d-flex flex-column align-items-center mb-7">
+                                            <span class="card-title text-secondary fw-light mb-1" style="font-size: 0.9rem;">Total Transaksi</span>
+                                            <strong id="invoice-offcanvas-content-amount" class="fw-bolder fs-2" style="color: #0B5B98;"></strong>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span>ID Reff</span>
+                                            <div class="d-flex align-items-center">
+                                                <button id="invoice-offcanvas-content-btn-reff" class="btn btn-outline-secondary p-0" style="width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center;" onclick="eventCopy(this);">
+                                                    <i class="bx bx-copy fs-tiny"></i>
+                                                </button>
+                                                <span id="invoice-offcanvas-content-reff" class="text-solid-theme ms-2"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rounded-2 mb-3" style="border: 1px solid var(--bs-secondary);">
+                                            <div class="d-flex align-items-center p-5">
+                                                <div class="bg-label-secondary me-4 d-flex align-items-center justify-content-center rounded-4 p-2" style="width: 36px; height: 36px;">
+                                                    <img id="invoice-offcanvas-content-wallet-src" src="https://assets.rumahotp.com/h2h/brand/qris.webp" class="rounded-4" height="30" width="30">
+                                                </div>
+                                                <div>
+                                                    <strong id="invoice-offcanvas-content-wallet-brand" class="fw-bold mb-1" style="font-size: 0.8rem;"></strong>
+                                                    <p id="invoice-offcanvas-content-wallet-buyer" class="text-muted mb-0" style="font-size: 0.75rem;"></p>
+                                                </div>
+                                            </div>
+                                            <div class="d-none" id="invoice-offcanvas-content-block-currency">
+                                                <hr class="my-2" style="border: none; border-top: 1px solid var(--bs-secondary);">
+                                                <div class="p-4">
+                                                    <div class="text-muted small">Kode ID TX</div>
+                                                    <div class="d-flex justify-content-between align-items-center text-wrap text-break">
+                                                        <span id="invoice-offcanvas-content-id-tx" class="text-solid-theme"></span>
+                                                        <button id="invoice-offcanvas-content-btn-id-tx" class="btn btn-sm btn-icon text-muted" onclick="eventCopy(this);">
+                                                            <i class='bx bx-copy'></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <hr class="my-2">
+                                                <div class="p-4">
+                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                        <div class="text-muted small">Currency</div>
+                                                        <div id="invoice-offcanvas-content-currency" class="text-solid-theme"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                        <div class="text-muted small">Nominal</div>
+                                                        <div id="invoice-offcanvas-content-nominal-currency" class="text-solid-theme"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                        <div class="text-muted small">Fee</div>
+                                                        <div id="invoice-offcanvas-content-fee-currency" class="text-solid-theme"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                                        <div class="text-muted small">Dibayarkan</div>
+                                                        <div id="invoice-offcanvas-content-total-currency" class="fw-semibold" style="color: #0C71B6;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="text-muted small">Waktu transaksi</div>
+                                            <div id="invoice-offcanvas-content-date" class="text-solid-theme"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="text-muted small">Kode ID Transaksi</div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span id="invoice-offcanvas-content-id" class="text-solid-theme"></span>
+                                                <button id="invoice-offcanvas-content-btn-id" class="btn btn-sm btn-icon text-muted" onclick="eventCopy(this);">
+                                                    <i class='bx bx-copy'></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="d-none" id="invoice-offcanvas-content-block-metadata">
+                                            <hr class="my-2">
+                                            <div class="d-flex justify-content-between align-items-center my-3">
+                                                <div class="text-muted small">RRN QRIS</div>
+                                                <div id="invoice-offcanvas-content-id-rrn" class="text-solid-theme small"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <div class="text-muted small">Terminal ID</div>
+                                                <div id="invoice-offcanvas-content-id-terminal" class="text-solid-theme small"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <div class="text-muted small">MID</div>
+                                                <div id="invoice-offcanvas-content-mid" class="text-solid-theme small"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <div class="text-muted small">NMID</div>
+                                                <div id="invoice-offcanvas-content-nmid" class="text-solid-theme small"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <div class="text-muted small">Merchant PAN</div>
+                                                <div id="invoice-offcanvas-content-mpan" class="text-solid-theme small"></div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <div class="text-muted small">Customer PAN</div>
+                                                <div id="invoice-offcanvas-content-cpan" class="text-solid-theme small"></div>
+                                            </div>
+                                        </div>
+                                        <hr class="my-2">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="text-muted small">Nominal transaksi</div>
+                                            <div id="invoice-offcanvas-content-nominal" class="text-solid-theme"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="text-muted small">Fee admin</div>
+                                            <div id="invoice-offcanvas-content-fee" class="text-solid-theme"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <div class="text-muted small">Total dibayarkan</div>
+                                            <div id="invoice-offcanvas-content-total" class="fw-semibold" style="color: #0C71B6;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center mb-4">
+                                            <span class="fs-tiny">Gateway pembayaran oleh</span>
+                                            <a href="https://www.rumahotp.com">
+                                                <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon.png" height="30" alt="RumahOTP">
+                                            </a>
+                                        </div>
+                                        <div class="row g-4 mb-4">
+                                            <div class="col-5">
+                                                <button type="button" class="btn btn-outline-secondary fw-bold w-100" style="height: 48px;" onclick="window.location.href='https://t.me/rumahotp_com';">Support</button>
+                                            </div>
+                                            <div class="col-7">
+                                                <button type="button" class="btn fw-bold w-100" style="height: 48px; background: linear-gradient(330deg, #004C99 0%, #007BFF 100%); color: white;" data-bs-dismiss="offcanvas">
+                                                    <i class="bx bxs-check-circle me-2"></i>Selesai
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="popup-activity" aria-labelledby="popup-activity-label" data-bs-focus="false" style="height: 60vh; min-height: 60vh; border-top-left-radius: 30px; border-top-right-radius: 30px; width: 100%; max-width: 500px; margin: 0 auto; left: 0; right: 0;">
+                            <div id="popup-activity-header">
+                                <div class="offcanvas-header d-flex justify-content-between align-items-center">
+                                    <div class="fw-bold text-solid-theme fs-6" id="popup-activity-title-header"></div>
+                                    <i class="bx bx-x text-solid-theme fs-6" data-bs-dismiss="offcanvas"></i>
+                                </div>
+                            </div>
+                            <div class="offcanvas-body font-normal p-6">
+                                <div class="row g-4">
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">ID ACT</div>
+                                        <div class="text-solid-theme fs-6" id="popup-activity-id"></div>
+                                    </div>
+                                    <hr class="mb-0">
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">Category</div>
+                                        <div class="text-solid-theme fs-7" id="popup-activity-category"></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">Logs</div>
+                                        <div class="text-solid-theme fs-7" id="popup-activity-logs"></div>
+                                    </div>
+                                    <hr class="mb-0">
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">Waktu</div>
+                                        <div class="text-solid-theme fs-7" id="popup-activity-time"></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">Address</div>
+                                        <div class="text-solid-theme fs-7" id="popup-activity-address"></div>
+                                    </div>
+                                    <hr class="mb-0">
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">ASN Organisasi</div>
+                                        <div class="text-solid-theme fs-7" id="popup-activity-asn"></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-secondary fs-8">Country</div>
+                                        <div class="text-solid-theme fs-7" id="popup-activity-country"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div id="map-wrapper" class="rounded-4 mb-2 d-none">
+                                            <div id="map-content" style="height: 18vh;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <div class="text-solid-theme fs-tiny">Keamanan system oleh</div>
+                                            <a href="https://www.rumahotp.com">
+                                                <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon.png" height="30" alt="RumahOTP">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="invoice_h2h" aria-labelledby="invoice_h2h">
+                            <div class="offcanvas-header">
+                                <div class="d-flex align-items-center pt-0">
+                                    <i class="bx bx-x fs-1 text-secondary" data-bs-dismiss="offcanvas"></i>
+                                    <div class="position-absolute start-50 translate-middle-x mb-1">
+                                        <img src="https://cdn.rumahotp.com/assets/img/icons/misc/check-circle-green.png" height="40" width="40" alt="check-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offcanvas-body pt-0">
+                                <div class="d-flex justify-content-center fw-bold mb-2" style="color: #12AE6F;">Pembayaran Berhasil</div>
+                                <div class="card card-payment-confirm shadow border rounded-4 p-4" style="margin-top: 50px;">
+                                    <div class="d-flex justify-content-center" style="margin-top: -50px;">
+                                        <div class="card shadow border rounded-circle d-flex justify-content-center align-items-center" style="height: 65px; width: 65px;">
+                                            <i class="bx bx-shop-carnaval fs-1"></i>
+                                        </div>
+                                    </div>
+                                    <div class="text-solid-theme fs-6 fw-bold text-center mt-2 mb-6" id="popup-ppob-title"></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="text-solid-theme fs-6 fw-bold">Total Transaksi</div>
+                                        <div class="text-solid-theme fs-6 fw-bold" id="popup-ppob-total"></div>
+                                    </div>
+                                    <div class="custom-dashed my-2"></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="text-solid-theme fw-light fs-6">Kode Pembelian</div>
+                                        <div class="text-solid-theme fs-6" id="popup-ppob-kode-pembelian"></div>
+                                    </div>
+                                    <div class="mb-2 mt-4">
+                                        <div class="bg-label-success rounded-4 d-flex align-items-center p-2" id="popup-ppob-label">
+                                            <img src="https://cdn.rumahotp.com/assets/img/icons/misc/done.png" width="22" height="22" alt="Success" id="popup-ppob-label-icon">
+                                            <div class="text-start text-solid-theme fs-8 fw-light ms-2" id="popup-ppob-label-content"></div>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-1 mb-3">
+                                    <div class="mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light">Waktu Transaksi</div>
+                                        <div class="text-solid-theme fs-6 fw-light" id="popup-ppob-date"></div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light">Kode Transaksi</div>
+                                        <div class="text-solid-theme fs-6 fw-light" id="popup-ppob-id"></div>
+                                    </div>
+                                    <hr class="mt-0 mb-3">
+                                    <div class="mb-3">
+                                        <div class="text-solid-theme fs-6 fw-semibold mb-3">Tracking Transaksi</div>
+                                        <div class="transaction-tracking mt-1" id="popup-ppob-tracking"></div>
+                                    </div>
+                                    <hr class="mt-0 mb-3">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Nomor Penerima</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-tujuan"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3" id="popup-ppob-is-tujuan-name">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Nama Penerima</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-tujuan-name"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Nominal Voucher</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-nominal"></div>
+                                    </div>
+                                    <div class="custom-dashed mb-3"></div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Kode Produk</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-produk-kode"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Nama Produk</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-produk-name"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Deskripsi Pembelian</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-produk-note"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Brand Layanan</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-brand"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-solid-theme fs-7 fw-light w-100">Kategori Layanan</div>
+                                        <div class="text-solid-theme fs-7 fw-light text-wrap text-break text-end w-100" id="popup-ppob-category"></div>
+                                    </div>
+                                    <div class="custom-dashed mb-3"></div>
+                                    <div class="d-flex justify-content-between mb-6">
+                                        <div class="text-solid-theme fs-6 fw-light">Total Dibayarkan</div>
+                                        <div class="text-solid-theme fs-6 fw-semibold" id="popup-ppob-amount"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <span class="fs-tiny">Gateway pembayaran oleh</span>
+                                        <a href="https://www.rumahotp.com">
+                                            <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon.png" height="30" alt="RumahOTP">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offcanvas-footer p-4">
+                                <button type="button" class="btn text-white fw-semibold rounded-pill w-100" style="height: 44px !important; background: linear-gradient(180deg, #12AE6F 0%, #10A066 100%);" data-bs-dismiss="offcanvas">Tutup Transaksi</button>
+                            </div>
+                        </div>
+                        <style>
+                            .offcanvas-body {
+                                overflow-y: auto;
+                                -webkit-overflow-scrolling: touch;
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/popper/popper.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/bootstrap.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/menu.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/main.js"></script>
+    <script src="../../assets/js/page/aktifitas.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/page/datepicker.js"></script>
+</body>
+
+</html>
