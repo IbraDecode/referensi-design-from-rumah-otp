@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="id" class="layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-skin="default" data-assets-path="https://cdn.rumahotp.com/assets/" data-template="rumah-otp" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Profile Account - RumahOTP</title>
+    <meta name="description" content="Nomor virtual murah dan berkualitas untuk ribuan aplikasi dari seluruh negara. Tersedia juga layanan REST API untuk kebutuhan integrasi verifikasi Anda, mulai dari Rp1.000!" />
+
+    <link rel="canonical" href="https://www.rumahotp.com" />
+    <link rel="icon" type="image/x-icon" href="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/css/core-custom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/css/demo.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/fab-navbars/bottom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/toast/toast.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/skeleton/skeleton.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@form-validation/form-validation.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/helpers.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/template-customizer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/config.js"></script>
+</head>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body>
+    <div id="container-wrapper" class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+        <div class="layout-container">
+            <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+                <div class="container-xxl">
+                    <div class="app-brand demo">
+                        <a href="/" class="app-brand-link">
+                            <span class="app-brand-logo demo me-1">
+                                <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon.png" class="d-dark-none" alt="RumahOTP" width="105">
+                                <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon_dark.png" class="d-light-none" alt="RumahOTP" width="105">
+                            </span>
+                        </a>
+                    </div>
+                    <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
+                        <ul class="navbar-nav flex-row align-items-center ms-md-auto">
+                            <li class="nav-item ms-2 me-2">
+                                <div class="balance-cards d-flex align-items-center bg-body border border-secondary border-opacity-10 rounded-3 px-2 py-1 shadow" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold text-end" style="font-size: 0.8125rem;" id="navbar-balance">Rp0</div>
+                                        <div class="text-success" style="font-size: 0.625rem;">Your balance amount</div>
+                                    </div>
+                                    <a href="../../client/topup" class="ms-1">
+                                        <span class="bg-primary d-flex align-items-center justify-content-center rounded-circle shadow-sm" style="width: 22px; height: 22px;">
+                                            <i class="bx bx-plus text-white" style="font-size: 0.75rem;"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img id="navbar-profile-img" src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" alt class="rounded-circle bg-label-secondary" onerror="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow border rounded-4" style="width: 245px; right: 20px; left: auto;">
+                                    <li>
+                                        <a class="dropdown-item d-flex flex-column align-items-center" href="../../client/profile">
+                                            <div class="avatar avatar-online mb-3">
+                                                <img id="navbar-profile-img2" src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" alt="Profile" class="w-px-40 h-auto rounded-circle bg-label-secondary" onerror="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+                                            </div>
+                                            <div id="navbar-profile-username" class="fw-bold text-truncate fs-5"></div>
+                                            <div id="navbar-profile-email" class="text-secondary text-truncate mb-3 fs-8"></div>
+                                            <div class="d-flex justify-content-center mb-3">
+                                                <button type="button" class="btn btn-outline-secondary text-solid-theme fs-7" onclick="window.location.href='../../client/profile';">Manage Your Account</button>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-1"></div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#themeSelect">Theme</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../../client/topup">Deposit Baru</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../../client/virtual-number">Orderan Baru</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../../client/activity">Riwayat Aktifitas</a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-1"></div>
+                                    </li>
+                                    <li id="admin-badge" class="d-none">
+                                        <a class="dropdown-item d-flex justify-content-between" href="../../moderator" target="_blank">
+                                            <span>Moderator</span>
+                                            <i class="icon-base bx bx-medal icon-sm"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex justify-content-between text-danger" href="../../logout" target="_blank">
+                                            <span>Logout</span>
+                                            <i class="icon-base bx bx-log-out icon-sm" style="rotate: 180deg;"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="modal fade" id="themeSelect" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-simple">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="text-center mb-4">
+                                <h4 class="mb-2">Change Theme Style</h4>
+                                <p>Choose between light and dark theme for your interface.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-check custom-option custom-option-basic">
+                                        <label class="form-check-label custom-option-content" for="lightTheme">
+                                            <input name="themeRadio" class="form-check-input" type="radio" data-bs-theme-value="light">
+                                            <span class="custom-option-header">
+                                                <span class="h6 mb-0 d-flex align-items-center">
+                                                    <i class="icon-base bx bx-sun me-2"></i>Light Theme
+                                                </span>
+                                            </span>
+                                            <span class="custom-option-body">
+                                                <small>Bright and clean interface for daytime use.</small>
+                                                <div class="mt-2 theme-preview light-preview"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-check custom-option custom-option-basic">
+                                        <label class="form-check-label custom-option-content" for="darkTheme">
+                                            <input name="themeRadio" class="form-check-input" type="radio" data-bs-theme-value="dark">
+                                            <span class="custom-option-header">
+                                                <span class="h6 mb-0 d-flex align-items-center">
+                                                    <i class="icon-base bx bx-moon me-2"></i>Dark Theme
+                                                </span>
+                                            </span>
+                                            <span class="custom-option-body">
+                                                <small>Easier on the eyes for low-light environments.</small>
+                                                <div class="mt-2 theme-preview dark-preview"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .theme-preview {
+                    height: 80px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+                }
+
+                .dark-preview {
+                    background: linear-gradient(145deg, #2b2b2b 0%, #1e1e1e 100%) !important;
+                    border-color: rgba(255, 255, 255, 0.1) !important;
+                }
+
+                [data-bs-theme="dark"] .light-preview {
+                    border-color: rgba(255, 255, 255, 0.1) !important;
+                }
+
+                .border-input {
+                    border: 1.5px solid var(--bs-secondary-border-subtle);
+                }
+
+                .border-input:focus {
+                    border: 1.5px solid var(--bs-secondary-border-subtle);
+                }
+
+                .no-style-input {
+                    height: 40px;
+                    box-shadow: none !important;
+                    outline: none !important;
+                    transition: none !important;
+                }
+
+                .no-style-input:focus {
+                    box-shadow: none !important;
+                }
+
+                .input-group.is-invalid {
+                    border: 1.5px solid var(--bs-form-invalid-border-color, #dc3545) !important;
+                }
+            </style>
+
+            <div id="loader" class="content-skeleton">
+                <div class="skeleton-rounded-pill"></div>
+                <div class="skeleton-balance-card"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+                <div>
+                    <div class="skeleton-box"></div>
+                    <div class="skeleton-box"></div>
+                    <div class="skeleton-box"></div>
+                </div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+            </div>
+
+            <div id="layout-content" class="layout-page d-none">
+                <style>
+                    #layout-navbar {
+                        height: 65px;
+                    }
+
+                    @media (min-width: 1200px) {
+                        #layout-navbar {
+                            height: 90px;
+                            padding-top: 0.5rem;
+                            padding-bottom: 0.5rem;
+                        }
+                    }
+                </style>
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div id="alert-newsletter" class="alert alert-dismissible d-flex font-normal rounded-5 d-none" role="alert">
+                            <div class="me-2 fs-6">
+                                <i class="icon-base bx bx-error text-solid-theme"></i>
+                            </div>
+                            <div>
+                                <div id="alert-newsletter-title" class="alert-heading fw-bold fs-6 mb-1 text-solid-theme"></div>
+                                <div id="alert-newsletter-content" class="text-solid-theme fs-7" style="line-height: 1rem;"></div>
+                            </div>
+                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="nav-align-top">
+                                    <ul class="nav nav-pills flex-column flex-sm-row mb-6 gap-sm-0 gap-2" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="javascript:void(0);" data-bs-toggle="tab" data-bs-target="#profile-tab" role="tab">
+                                                <i class="icon-base bx bx-user icon-sm me-1_5"></i>Profile
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tab" data-bs-target="#custom-tab" role="tab">
+                                                <i class="icon-base bx bx-cog icon-sm me-1_5"></i>Setting
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tab" data-bs-target="#apikey-tab" role="tab">
+                                                <i class="icon-base bx bx-lock icon-sm me-1_5"></i>Apikeys
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid p-0">
+                            <div class="tab-content">
+
+                                <div class="tab-pane fade show active" id="profile-tab" role="tabpanel" aria-labelledby="profile-tab-btn">
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 col-lg-10 rounded-4 shadow p-6" style="background-color: var(--bs-paper-bg);">
+                                            <div class="d-flex flex-column flex-md-row align-items-center gap-4 py-4 border-bottom">
+                                                <div class="position-relative">
+                                                    <img id="users-avatar" src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" class="rounded-circle border bg-label-secondary" width="96" height="96" alt="User avatar">
+                                                    <button class="btn btn-light btn-sm rounded-circle p-1 position-absolute bottom-0 end-0 border" aria-label="Change profile picture" data-bs-toggle="tab" data-bs-target="#custom-tab">
+                                                        <i class="bx bx-pencil small"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="text-center text-md-start">
+                                                    <h3 id="users-name" class="mb-1 fw-normal">${name}</h3>
+                                                    <div class="d-flex gap-4 mt-2 justify-content-center justify-content-md-start">
+                                                        <div class="text-center">
+                                                            <div id="users-orders" class="fw-medium">${orders}</div>
+                                                            <div class="text-muted small">Orders</div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <div id="users-deposit" class="fw-medium">${deposit}</div>
+                                                            <div class="text-muted small">Deposit</div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <div id="users-ppob" class="fw-medium">${ppob}</div>
+                                                            <div class="text-muted small">PPOB</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4 g-3">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">ID</div>
+                                                        <div id="users-id" class="fw-medium">${id}</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">Username</div>
+                                                        <div id="users-username" class="fw-medium">${username}</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">Name</div>
+                                                        <div id="users-namefull" class="fw-medium">${name}</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">Email</div>
+                                                        <div id="users-email" class="fw-medium">${email}</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">Account Created</div>
+                                                        <div id="users-created" class="fw-medium">${created}</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">Last Login</div>
+                                                        <div id="users-login" class="fw-medium">${login}</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">Telegram ID</div>
+                                                        <div id="users-telegram" class="fw-medium">${telegram}</div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="text-muted small mb-1">WhatsApp</div>
+                                                        <div id="users-whatsapp" class="fw-medium">${whatsapp}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex flex-column flex-sm-row gap-2 mt-4 pt-3 border-top">
+                                                <a href="javascript:void(0);" data-bs-toggle="tab" data-bs-target="#custom-tab" class="btn btn-outline-primary btn-sm" data-bs-toggle="tab">
+                                                    <i class="bx bx-pencil me-1"></i> Edit Profile
+                                                </a>
+                                                <a href="../../logout" class="btn btn-outline-secondary btn-sm">
+                                                    <i class="bx bx-log-out me-1"></i> Logout
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="custom-tab" role="tabpanel" aria-labelledby="custom-tab-btn">
+                                    <div class="row g-4">
+                                        <div class="col-md-7 me-md-6 rounded-4 p-6 shadow" style="background-color: var(--bs-paper-bg);">
+                                            <div class="mb-4">
+                                                <div class="mb-4">
+                                                    <h5 class="mb-1">Edit Profile</h5>
+                                                    <small class="text-muted">Update your personal details</small>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form id="users-edits">
+                                                        <div class="row g-3">
+                                                            <div class="col-12 mb-6">
+                                                                <div class="d-flex flex-column flex-sm-row align-items-center gap-4">
+                                                                    <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" alt="Profile" class="rounded-circle bg-label-secondary" width="100" height="100" id="uploaded_avatar">
+                                                                    <div>
+                                                                        <label for="upload" class="btn btn-primary me-2 mb-2">
+                                                                            <i class="bx bx-upload me-1"></i> Upload
+                                                                            <input type="file" id="upload" class="d-none" accept="image/png, image/jpeg, image/jpg">
+                                                                        </label>
+                                                                        <button type="button" class="btn btn-outline-secondary mb-2" onclick="deleteProfile()">
+                                                                            <i class="bx bx-trash me-1"></i> Remove
+                                                                        </button>
+                                                                        <p class="small text-muted mb-0">Allowed JPG, GIF or PNG. Max size 800K</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6 form-control-validation-edit">
+                                                                <label class="form-label" for="edits-name">Name</label>
+                                                                <input type="text" class="form-control no-style-input border-input" style="background-color: var(--bs-paper-bg) !important;" id="edits-name" name="edits-name" placeholder="Admin">
+                                                            </div>
+                                                            <div class="col-md-6 form-control-validation-edit">
+                                                                <label class="form-label" for="edits-username">Username</label>
+                                                                <input type="text" class="form-control no-style-input border-input" style="background-color: var(--bs-paper-bg) !important;" id="edits-username" style="background-color: var(--bs-paper-bg) !important;" name="edits-username" placeholder="admin.rumahotp">
+                                                            </div>
+                                                            <div class="col-md-6 form-control-validation-edit">
+                                                                <label class="form-label" for="edits-email">Email</label>
+                                                                <input type="email" class="form-control no-style-input border-input" style="background-color: var(--bs-paper-bg) !important;" id="edits-email" style="background-color: var(--bs-paper-bg) !important;" name="edits-email" placeholder="admin@rumahotp.com">
+                                                            </div>
+
+                                                            <div class="col-md-6 form-control-validation-edit">
+                                                                <label class="form-label" for="edits-telegram">Telegram ID</label>
+                                                                <div class="input-group no-style-input border-input" style="height: 42px;">
+                                                                    <span class="input-group-text border-none" style="background-color: var(--bs-paper-bg) !important;">ID</span>
+                                                                    <input type="number" class="form-control no-style-input border-none" style="background-color: var(--bs-paper-bg) !important;" id="edits-telegram" name="edits-telegram" placeholder="id user">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 form-control-validation-edit">
+                                                                <label class="form-label" for="edits-whatsapp">WhatsApp Number</label>
+                                                                <div class="input-group no-style-input border-input" style="height: 42px;">
+                                                                    <span class="input-group-text border-none" style="background-color: var(--bs-paper-bg) !important;">+62</span>
+                                                                    <input type="tel" class="form-control no-style-input border-none" style="background-color: var(--bs-paper-bg) !important;" id="edits-whatsapp" name="edits-whatsapp" placeholder="81234567890">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 mt-6">
+                                                                <div class="d-flex justify-content-end gap-2">
+                                                                    <button type="reset" class="btn btn-outline-secondary">
+                                                                        <i class="bx bx-refresh me-1"></i> Reset
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="bx bx-save me-1"></i> Save
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 rounded-4 p-6 shadow mb-6" style="background-color: var(--bs-paper-bg);">
+                                            <div class="mb-4">
+                                                <h5 class="mb-1">Change Password</h5>
+                                                <small class="text-muted">Ensure your account security with a strong password</small>
+                                            </div>
+                                            <div class="card-body">
+                                                <form id="form-change-password">
+                                                    <div class="row g-3">
+                                                        <div class="col-12 form-control-validation-password">
+                                                            <label class="form-label" for="currentPassword">Current Password</label>
+                                                            <div class="input-group no-style-input border-input" style="height: 42px;">
+                                                                <input type="password" class="form-control no-style-input border-none" id="currentPassword" name="currentPassword" placeholder="••••••••">
+                                                                <button class="btn toggle-password" type="button">
+                                                                    <i class="bx bx-hide"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 form-control-validation-password">
+                                                            <label class="form-label" for="newPassword">New Password</label>
+                                                            <div class="input-group no-style-input border-input" style="height: 42px;">
+                                                                <input type="password" class="form-control no-style-input border-none" id="newPassword" name="newPassword" placeholder="••••••••">
+                                                                <button class="btn toggle-password" type="button">
+                                                                    <i class="bx bx-hide"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 form-control-validation-password">
+                                                            <label class="form-label" for="confirmPassword">Confirm New Password</label>
+                                                            <div class="input-group no-style-input border-input" style="height: 42px;">
+                                                                <input type="password" class="form-control no-style-input border-none" id="confirmPassword" name="confirmPassword" placeholder="••••••••">
+                                                                <button class="btn toggle-password" type="button">
+                                                                    <i class="bx bx-hide"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <div class="bg-label-secondary p-3 rounded">
+                                                                <h6 class="small mb-2">Password Requirements:</h6>
+                                                                <ul class="list-unstyled small text-muted mb-0">
+                                                                    <li class="d-flex align-items-center mb-1">
+                                                                        <i class="bx bxs-check-circle text-solid-success me-2"></i>
+                                                                        Minimum 8 characters
+                                                                    </li>
+                                                                    <li class="d-flex align-items-center mb-1">
+                                                                        <i class="bx bxs-check-circle text-solid-success me-2"></i>
+                                                                        At least one uppercase letter
+                                                                    </li>
+                                                                    <li class="d-flex align-items-center">
+                                                                        <i class="bx bxs-check-circle text-solid-success me-2"></i>
+                                                                        At least one number
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <div class="d-flex justify-content-end gap-2">
+                                                                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                                                                <button type="submit" class="btn btn-primary">
+                                                                    <i class="bx bx-check-circle me-1"></i> Update
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="apikey-tab" role="tabpanel" aria-labelledby="apikey-tab-btn">
+                                    <div class="row justify-content-center border shadow rounded-4" style="background-color: var(--bs-paper-bg);">
+                                        <div class="py-4 px-5 border-bottom rounded-top-4">
+                                            <div class="d-flex flex-column">
+                                                <h5 class="mb-1 fw-semibold">API Key Management</h5>
+                                                <p class="text-muted mb-0">Secure access key for integrating with our services</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-5">
+                                            <div class="mb-4">
+                                                <label for="apikey_value" class="form-label fw-medium text-dark mb-2">Your API Key</label>
+                                                <div class="input-group no-style-input border-input" style="height: 42px;">
+                                                    <input type="password" class="form-control font-monospace no-style-input border-none py-3 px-4" id="apikey_value" readonly>
+                                                    <button class="btn view-toggle no-style-input pe-2" type="button">
+                                                        <i class="bx bx-hide"></i>
+                                                    </button>
+                                                    <button class="btn copy-key no-style-input ps-2" type="button" data-bs-toggle="tooltip" title="Copy to clipboard">
+                                                        <i class="bx bx-copy"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="text-muted mt-2 small d-flex align-items-center" id="apikey_created">
+                                                    <i class="bx bx-calendar me-1"></i> Created on ${date}
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 py-3 border-top border-bottom">
+                                                <div class="form-check form-switch mb-0">
+                                                    <input class="form-check-input" type="checkbox" id="apikey_active" checked>
+                                                    <label class="form-check-label fw-medium" for="apikey_active">Key Active</label>
+                                                </div>
+
+                                                <div class="d-flex gap-2">
+                                                    <button type="button" class="btn btn-outline-primary btn-sm px-3 py-2" onclick="refreshKey()">
+                                                        <i class="bx bx-refresh me-1"></i> Refresh Key
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-danger btn-sm px-3 py-2" data-bs-toggle="modal" data-bs-target="#regenerateModal">
+                                                        <i class="bx bx-reset me-1"></i> Regenerate
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="alert alert-warning border-0 p-3 d-flex flex-column">
+                                                <h6 class="alert-heading fw-semibold mb-2 d-flex align-items-center">
+                                                    <i class="bx bx-info-circle fs-5 text-warning me-2"></i>
+                                                    Security Notice
+                                                </h6>
+                                                <p class="small mb-0">
+                                                    Treat your API key like a password. Keep it secure and never expose it in client-side code or public repositories.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center mt-4">
+                                        <a href="../../developer/api" class="btn btn-link text-decoration-none px-0">
+                                            View API Documentation <i class="bx bx-chevron-right ms-1 align-middle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="regenerateModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Confirm Key Regeneration</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Generating a new API key will immediately invalidate your current key. Any systems using the old key will stop working until updated.</p>
+                                        <p class="fw-semibold">Are you sure you want to proceed?</p>
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-between">
+                                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                                            <i class="bx bx-x me-2"></i>Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-danger" id="confirm_regenerate">
+                                            <i class="bx bx-reset me-2"></i>Confirm
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+                            .app-apikey-block,
+                            .app-change-password-block {
+                                box-shadow: 0 0.125rem 0.375rem rgba(161, 172, 184, 0.12);
+                                transition: all 0.3s ease;
+                            }
+
+                            .app-apikey-block:hover,
+                            .app-change-password-block:hover {
+                                box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.2);
+                            }
+
+                            .app-block-header {
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                            }
+
+                            .font-monospace {
+                                font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+                                font-size: 0.875rem;
+                            }
+
+                            .input-group-merge .btn {
+                                border-radius: 0;
+                            }
+
+                            .input-group-merge .btn:last-child {
+                                border-top-right-radius: 0.375rem;
+                                border-bottom-right-radius: 0.375rem;
+                            }
+
+                            .regenerate-btn:hover {
+                                background-color: rgba(234, 84, 85, 0.9);
+                            }
+
+                            .password-requirements {
+                                border-left: 4px solid #7367f0;
+                            }
+
+                            #custom-tab .card-header {
+                                padding: 1.5rem;
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                            }
+
+                            #custom-tab .form-label {
+                                font-weight: 500;
+                                margin-bottom: 0.5rem;
+                            }
+
+                            #custom-tab .input-group-text {
+                                background-color: #f5f5f9;
+                            }
+
+                            #custom-tab .account-file-input {
+                                position: absolute;
+                                width: 1px;
+                                height: 1px;
+                                padding: 0;
+                                margin: -1px;
+                                overflow: hidden;
+                                clip: rect(0, 0, 0, 0);
+                                white-space: nowrap;
+                                border-width: 0;
+                            }
+
+                            .avatar .btn {
+                                width: 36px;
+                                height: 36px;
+                                padding: 0;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                            .font-monospace {
+                                font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+                                font-size: 0.875rem;
+                            }
+
+                            @media (max-width: 576px) {
+                                .details-grid .col-sm-6 {
+                                    margin-bottom: 1rem;
+                                }
+
+                                .details-grid .col-sm-6:last-child {
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            .tab-content {
+                                animation: fadeIn 0.3s ease;
+                            }
+
+                            @keyframes fadeIn {
+                                from {
+                                    opacity: 0;
+                                }
+
+                                to {
+                                    opacity: 1;
+                                }
+                            }
+                        </style>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                                tooltipTriggerList.map(function(tooltipTriggerEl) {
+                                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                                });
+
+                                document.querySelectorAll('.view-toggle, .toggle-password').forEach(button => {
+                                    button.addEventListener('click', function() {
+                                        const input = this.closest('.input-group').querySelector('input');
+                                        const icon = this.querySelector('i');
+
+                                        if (input.type === 'password') {
+                                            input.type = 'text';
+                                            icon.classList.remove('bx-hide');
+                                            icon.classList.add('bx-show');
+                                        } else {
+                                            input.type = 'password';
+                                            icon.classList.remove('bx-show');
+                                            icon.classList.add('bx-hide');
+                                        }
+                                    });
+                                });
+
+                                document.querySelectorAll('.copy-key').forEach(button => {
+                                    button.addEventListener('click', function() {
+                                        const input = this.closest('.input-group').querySelector('input');
+                                        input.select();
+                                        document.execCommand('copy');
+
+                                        const tooltip = bootstrap.Tooltip.getInstance(button);
+                                        const originalTitle = button.getAttribute('data-bs-original-title');
+                                        tooltip.setContent({
+                                            '.tooltip-inner': 'Copied!'
+                                        });
+
+                                        setTimeout(() => {
+                                            tooltip.setContent({
+                                                '.tooltip-inner': originalTitle
+                                            });
+                                        }, 2000);
+                                    });
+                                });
+                            });
+                        </script>
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div>
+                </div>
+
+            </div>
+
+            <nav class="navbar navbar-expand fixed-bottom d-block sneat-bottom-navbar">
+                <div class="container-fluid px-0">
+                    <ul class="navbar-nav sneat-bottom-nav w-100">
+                        <div class="d-flex justify-content-around flex-grow-1 pe-4">
+                            <li class="nav-item">
+                                <a class="sneat-nav-link" href="../../dashboard" data-target="../../dashboard">
+                                    <i class='bx bx-home-2'></i>
+                                    <span class="sneat-nav-text">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item me-4">
+                                <a class="sneat-nav-link" href="../../client/topup" data-target="../../client/topup">
+                                    <i class='bx bx-ewallet'></i>
+                                    <span class="sneat-nav-text">Deposit</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <li class="nav-item fab-item">
+                            <a class="sneat-nav-link fab-link" href="../../client/virtual-number" data-target="../../client/virtual-number">
+                                <img src="https://cdn.rumahotp.com/assets/img/icons/misc/shop.png" width="32" height="32" alt="Order" class="fab-icon">
+                            </a>
+                        </li>
+
+                        <div class="d-flex justify-content-around flex-grow-1 ps-4">
+                            <li class="nav-item ms-4">
+                                <a class="sneat-nav-link" href="../../client/activity" data-target="../../client/activity">
+                                    <i class='bx bx-activity'></i>
+                                    <span class="sneat-nav-text">Activity</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="sneat-nav-link active" href="../../client/profile" data-target="../../client/profile">
+                                    <i class='bx bxs-user-alt'></i>
+                                    <span class="sneat-nav-text">Profile</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/toast/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/popper/popper.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/bootstrap.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@algolia/autocomplete-js.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/menu.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/newsletter.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/page-navbars.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/main.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@form-validation/popular.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@form-validation/bootstrap5.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@form-validation/auto-focus.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/page/profile.js"></script>
+</body>
+
+</html>
+
+<!-- © 2025 • VredenCloud -->
