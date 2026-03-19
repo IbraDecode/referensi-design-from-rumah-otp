@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="id" class=" layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-skin="default" data-assets-path="https://cdn.rumahotp.com/assets/" data-template="rumah-otp" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Layanan Virtual Number Dan PPOB Terbaik - RumahOTP</title>
+    <meta name="description" content="Nomor virtual murah dan berkualitas untuk ribuan aplikasi dari seluruh negara. Tersedia juga layanan REST API untuk kebutuhan integrasi verifikasi Anda, mulai dari Rp1.000!" />
+
+    <link rel="canonical" href="https://www.rumahotp.com" />
+    <link rel="icon" type="image/x-icon" href="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/oxanium@5.1.0/index.css">
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/css/core-custom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/css/demo.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/fab-navbars/bottom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/skeleton/skeleton.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/shepherd/shepherd.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css'>
+
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/helpers.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/template-customizer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/config.js"></script>
+</head>
+
+<style>
+    body {
+        font-family: 'Oxanium', sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .swiper-slide {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    .swiper-slide-active,
+    .swiper-slide-prev,
+    .swiper-slide-next {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    .swiper-pagination-bullet {
+        border: 1px solid #1da1f2;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #1da1f2
+    }
+
+    img:not([draggable]),
+    embed,
+    object,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .swiper-container {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        overflow: hidden;
+        z-index: 1
+    }
+
+    .swiper-container-no-flexbox .swiper-slide {
+        float: left
+    }
+
+    .swiper-container-vertical>.swiper-wrapper {
+        -webkit-box-orient: vertical;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-transition-property: -webkit-transform;
+        transition-property: -webkit-transform;
+        transition-property: transform;
+        transition-property: transform, -webkit-transform;
+        box-sizing: content-box
+    }
+
+    .swiper-container-android .swiper-slide,
+    .swiper-wrapper {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+
+    .swiper-container-multirow>.swiper-wrapper {
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+    .swiper-container-free-mode>.swiper-wrapper {
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        margin: 0 auto
+    }
+
+    .swiper-slide {
+        -webkit-flex-shrink: 0;
+        -ms-flex: 0 0 auto;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative
+    }
+
+    .swiper-container-autoheight,
+    .swiper-container-autoheight .swiper-slide {
+        height: auto
+    }
+
+    .swiper-container-autoheight .swiper-wrapper {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-transition-property: -webkit-transform, height;
+        -webkit-transition-property: height, -webkit-transform;
+        transition-property: height, -webkit-transform;
+        transition-property: transform, height;
+        transition-property: transform, height, -webkit-transform
+    }
+
+    .swiper-container .swiper-notification {
+        position: absolute;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -1000
+    }
+
+    .swiper-wp8-horizontal {
+        -ms-touch-action: pan-y;
+        touch-action: pan-y
+    }
+
+    .swiper-wp8-vertical {
+        -ms-touch-action: pan-x;
+        touch-action: pan-x
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: absolute;
+        top: 50%;
+        width: 27px;
+        height: 44px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        background-size: 27px 44px;
+        background-position: center;
+        background-repeat: no-repeat
+    }
+
+    .swiper-button-next.swiper-button-disabled,
+    .swiper-button-prev.swiper-button-disabled {
+        opacity: .35;
+        cursor: auto;
+        pointer-events: none
+    }
+
+    .swiper-button-prev,
+    .swiper-container-rtl .swiper-button-next {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
+        left: 10px;
+        right: auto
+    }
+
+    .swiper-button-prev.swiper-button-black,
+    .swiper-container-rtl .swiper-button-next.swiper-button-black {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E")
+    }
+
+    .swiper-button-prev.swiper-button-white,
+    .swiper-container-rtl .swiper-button-next.swiper-button-white {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+    }
+
+    .swiper-button-next,
+    .swiper-container-rtl .swiper-button-prev {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
+        right: 10px;
+        left: auto
+    }
+
+    .swiper-button-next.swiper-button-black,
+    .swiper-container-rtl .swiper-button-prev.swiper-button-black {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E")
+    }
+
+    .swiper-button-next.swiper-button-white,
+    .swiper-container-rtl .swiper-button-prev.swiper-button-white {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        text-align: center;
+        -webkit-transition: .3s;
+        transition: .3s;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        z-index: 10
+    }
+
+    .swiper-pagination.swiper-pagination-hidden {
+        opacity: 0
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 10px;
+        left: 0;
+        width: 100%
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 100%;
+        background: #000;
+        opacity: .2
+    }
+
+    button.swiper-pagination-bullet {
+        border: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -webkit-appearance: none;
+        appearance: none
+    }
+
+    .swiper-pagination-clickable .swiper-pagination-bullet {
+        cursor: pointer
+    }
+
+    .swiper-pagination-white .swiper-pagination-bullet {
+        background: #fff
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #007aff
+    }
+
+    .swiper-pagination-white .swiper-pagination-bullet-active {
+        background: #fff
+    }
+
+    .swiper-pagination-black .swiper-pagination-bullet-active {
+        background: #000
+    }
+
+    .swiper-container-vertical>.swiper-pagination-bullets {
+        right: 10px;
+        top: 50%;
+        -webkit-transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -50%, 0)
+    }
+
+    .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 5px 0;
+        display: block
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 5px
+    }
+
+    .swiper-pagination-progress {
+        background: rgba(0, 0, 0, .25);
+        position: absolute
+    }
+
+    .swiper-pagination-progress .swiper-pagination-progressbar {
+        background: #007aff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transform-origin: left top;
+        transform-origin: left top
+    }
+
+    .swiper-container-rtl .swiper-pagination-progress .swiper-pagination-progressbar {
+        -webkit-transform-origin: right top;
+        transform-origin: right top
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-progress {
+        width: 100%;
+        height: 4px;
+        left: 0;
+        top: 0
+    }
+
+    .swiper-container-vertical>.swiper-pagination-progress {
+        width: 4px;
+        height: 100%;
+        left: 0;
+        top: 0
+    }
+
+    .swiper-pagination-progress.swiper-pagination-white {
+        background: rgba(255, 255, 255, .5)
+    }
+
+    .swiper-pagination-progress.swiper-pagination-white .swiper-pagination-progressbar {
+        background: #fff
+    }
+
+    .swiper-pagination-progress.swiper-pagination-black .swiper-pagination-progressbar {
+        background: #000
+    }
+
+    .swiper-container-3d {
+        -webkit-perspective: 1200px;
+        -o-perspective: 1200px;
+        perspective: 1200px
+    }
+
+    .swiper-container-3d .swiper-cube-shadow,
+    .swiper-container-3d .swiper-slide,
+    .swiper-container-3d .swiper-slide-shadow-bottom,
+    .swiper-container-3d .swiper-slide-shadow-left,
+    .swiper-container-3d .swiper-slide-shadow-right,
+    .swiper-container-3d .swiper-slide-shadow-top,
+    .swiper-container-3d .swiper-wrapper {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-bottom,
+    .swiper-container-3d .swiper-slide-shadow-left,
+    .swiper-container-3d .swiper-slide-shadow-right,
+    .swiper-container-3d .swiper-slide-shadow-top {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-left {
+        background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, 0)));
+        background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+        background-image: linear-gradient(to left, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-right {
+        background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, 0)));
+        background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+        background-image: linear-gradient(to right, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-top {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, 0)));
+        background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+        background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-bottom {
+        background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, 0)));
+        background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0))
+    }
+
+    .swiper-container-coverflow .swiper-wrapper,
+    .swiper-container-flip .swiper-wrapper {
+        -ms-perspective: 1200px
+    }
+
+    .swiper-container-cube,
+    .swiper-container-flip {
+        overflow: visible
+    }
+
+    .swiper-container-cube .swiper-slide,
+    .swiper-container-flip .swiper-slide {
+        pointer-events: none;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        z-index: 1
+    }
+
+    .swiper-container-cube .swiper-slide .swiper-slide,
+    .swiper-container-flip .swiper-slide .swiper-slide {
+        pointer-events: none
+    }
+
+    .swiper-container-cube .swiper-slide-active,
+    .swiper-container-cube .swiper-slide-active .swiper-slide-active,
+    .swiper-container-flip .swiper-slide-active,
+    .swiper-container-flip .swiper-slide-active .swiper-slide-active {
+        pointer-events: auto
+    }
+
+    .swiper-container-cube .swiper-slide-shadow-bottom,
+    .swiper-container-cube .swiper-slide-shadow-left,
+    .swiper-container-cube .swiper-slide-shadow-right,
+    .swiper-container-cube .swiper-slide-shadow-top,
+    .swiper-container-flip .swiper-slide-shadow-bottom,
+    .swiper-container-flip .swiper-slide-shadow-left,
+    .swiper-container-flip .swiper-slide-shadow-right,
+    .swiper-container-flip .swiper-slide-shadow-top {
+        z-index: 0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden
+    }
+
+    .swiper-container-cube .swiper-slide {
+        visibility: hidden;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        width: 100%;
+        height: 100%
+    }
+
+    .swiper-container-cube.swiper-container-rtl .swiper-slide {
+        -webkit-transform-origin: 100% 0;
+        transform-origin: 100% 0
+    }
+
+    .swiper-container-cube .swiper-slide-active,
+    .swiper-container-cube .swiper-slide-next,
+    .swiper-container-cube .swiper-slide-next+.swiper-slide,
+    .swiper-container-cube .swiper-slide-prev {
+        pointer-events: auto;
+        visibility: visible
+    }
+
+    .swiper-container-cube .swiper-cube-shadow {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: .6;
+        -webkit-filter: blur(50px);
+        filter: blur(50px);
+        z-index: 0
+    }
+
+    .swiper-container-fade.swiper-container-free-mode .swiper-slide {
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out
+    }
+
+    .swiper-container-fade .swiper-slide {
+        pointer-events: none;
+        -webkit-transition-property: opacity;
+        transition-property: opacity
+    }
+
+    .swiper-container-fade .swiper-slide .swiper-slide {
+        pointer-events: none
+    }
+
+    .swiper-container-fade .swiper-slide-active,
+    .swiper-container-fade .swiper-slide-active .swiper-slide-active {
+        pointer-events: auto
+    }
+
+    .swiper-zoom-container {
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align: center
+    }
+
+    .swiper-zoom-container>canvas,
+    .swiper-zoom-container>img,
+    .swiper-zoom-container>svg {
+        max-width: 100%;
+        max-height: 100%;
+        -o-object-fit: contain;
+        object-fit: contain
+    }
+
+    .swiper-scrollbar {
+        border-radius: 10px;
+        position: relative;
+        -ms-touch-action: none;
+        background: rgba(0, 0, 0, .1)
+    }
+
+    .swiper-container-horizontal>.swiper-scrollbar {
+        position: absolute;
+        left: 1%;
+        bottom: 3px;
+        z-index: 50;
+        height: 5px;
+        width: 98%
+    }
+
+    .swiper-container-vertical>.swiper-scrollbar {
+        position: absolute;
+        right: 3px;
+        top: 1%;
+        z-index: 50;
+        width: 5px;
+        height: 98%
+    }
+
+    .swiper-scrollbar-drag {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        background: rgba(0, 0, 0, .5);
+        border-radius: 10px;
+        left: 0;
+        top: 0
+    }
+
+    .swiper-scrollbar-cursor-drag {
+        cursor: move
+    }
+
+    .swiper-lazy-preloader {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
+        z-index: 10;
+        -webkit-transform-origin: 50%;
+        transform-origin: 50%;
+        -webkit-animation: swiper-preloader-spin 1s steps(12, end) infinite;
+        animation: swiper-preloader-spin 1s steps(12, end) infinite
+    }
+
+    .swiper-lazy-preloader:after {
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        background-position: 50%;
+        background-size: 100%;
+        background-repeat: no-repeat
+    }
+
+    .swiper-lazy-preloader-white:after {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")
+    }
+
+    @-webkit-keyframes swiper-preloader-spin {
+        100% {
+            -webkit-transform: rotate(360deg)
+        }
+    }
+
+    @keyframes swiper-preloader-spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg)
+        }
+    }
+
+    .swiper-container.one {
+        padding-top: 40px;
+        text-align: center;
+    }
+
+    .swiper-container.one .swiper-slide {
+        padding: 0 43px;
+    }
+
+    .swiper-container {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+
+    .swiper-slide img {
+        display: block;
+        margin: auto;
+        width: 100%;
+    }
+
+    .swiper-slide {
+        width: 390px;
+        height: auto;
+        padding: 0 15px;
+    }
+
+    .two .swiper-slide {
+        width: 350px;
+        padding: 0 10px;
+    }
+
+    .swiper-slide img {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .swiper {
+        width: 100%;
+        padding: 40px 0;
+    }
+
+    .swiper-slide {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        border-radius: 18px;
+    }
+
+    .swiper-slide-active {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .swiper-slide-next,
+    .swiper-slide-prev {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+
+    .swiper-slide .slider-image .preview-icon {
+        z-index: -1;
+        width: calc(100% - 30px);
+    }
+
+    .swiper-slide.swiper-slide-active .slider-image:hover .preview-icon {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        z-index: 1;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 0;
+    }
+
+    .swiper-pagination-bullet {
+        background: transparent none repeat scroll 0 0;
+        border: 1px solid #ee0f6f;
+        border-radius: 10px;
+        display: inline-block;
+        height: 10px;
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        width: 26px;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, #ee0f6f 0%, #f89482 100%) repeat scroll 0 0;
+        background: rgba(0, 0, 0, 0) linear-gradient(to right, #ee0f6f 0%, #f89482 100%) repeat scroll 0 0;
+        border: medium none;
+        height: 10px;
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        width: 10px;
+    }
+
+    .soft-toggle {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .soft-toggle.show {
+        max-height: 100%;
+        opacity: 1;
+        transition: max-height 2s ease, opacity 2s ease;
+    }
+
+    .soft-toggle.soft-responsive {
+        overflow: visible;
+        max-height: none;
+        opacity: 1;
+        transition: none;
+    }
+
+    @media (max-width: 575px) {
+        .soft-toggle.soft-responsive {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+
+        .soft-toggle.soft-responsive.show {
+            opacity: 1;
+            max-height: 100%;
+            transition: max-height 2s ease, opacity 2s ease;
+        }
+    }
+
+    .sticky-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 60px;
+        background-color: var(--bs-body-bg);
+        z-index: 1000;
+    }
+
+    @media (min-width: 1200px) {
+        .sticky-container {
+            top: 90px;
+        }
+    }
+</style>
+
+<body oncontextmenu="return false;">
+    <div id="container-wrapper" class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+        <div class="layout-container">
+            <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
+                <div class="container-xxl">
+                    <div class="app-brand demo">
+                        <a href="/" class="app-brand-link">
+                            <span class="app-brand-logo demo me-1">
+                                <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon.png" class="d-dark-none" alt="RumahOTP" width="105">
+                                <img src="https://cdn.rumahotp.com/assets/img/favicon/favicon_dark.png" class="d-light-none" alt="RumahOTP" width="105">
+                            </span>
+                        </a>
+                    </div>
+                    <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
+                        <ul class="navbar-nav flex-row align-items-center ms-md-auto">
+                            <li class="nav-item ms-2 me-2">
+                                <div class="balance-cards d-flex align-items-center bg-body border border-secondary border-opacity-10 rounded-3 px-2 py-1 shadow" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold text-end" style="font-size: 0.8125rem;" id="navbar-balance">Rp0</div>
+                                        <div class="text-success" style="font-size: 0.625rem;">Your balance amount</div>
+                                    </div>
+                                    <a href="../../client/topup" class="ms-1">
+                                        <span class="bg-primary d-flex align-items-center justify-content-center rounded-circle shadow-sm" style="width: 22px; height: 22px;">
+                                            <i class="bx bx-plus text-white" style="font-size: 0.75rem;"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img id="navbar-profile-img" src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" alt class="rounded-circle bg-label-secondary" onerror="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow border font-normal rounded-4" style="width: 245px; right: 20px; left: auto;">
+                                    <li>
+                                        <a class="dropdown-item d-flex flex-column align-items-center" href="../../client/profile">
+                                            <div class="avatar avatar-online mb-3">
+                                                <img id="navbar-profile-img2" src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" alt="Profile" class="w-px-40 h-auto rounded-circle bg-label-secondary" onerror="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+                                            </div>
+                                            <div id="navbar-profile-username" class="fw-bold text-truncate fs-5"></div>
+                                            <div id="navbar-profile-email" class="text-secondary text-truncate mb-3 fs-8"></div>
+                                            <div class="d-flex justify-content-center mb-3">
+                                                <button type="button" class="btn btn-outline-secondary text-solid-theme fs-7" onclick="window.location.href='../../client/profile';">Manage Your Account</button>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-1"></div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#themeSelect">Theme</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../../client/topup">Deposit Baru</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../../client/virtual-number">Orderan Baru</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../../client/activity">Riwayat Aktifitas</a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-1"></div>
+                                    </li>
+                                    <li id="admin-badge" class="d-none">
+                                        <a class="dropdown-item d-flex justify-content-between" href="../../moderator" target="_blank">
+                                            <span>Moderator</span>
+                                            <i class="icon-base bx bx-medal icon-sm"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex justify-content-between text-danger" href="../../logout" target="_blank">
+                                            <span>Logout</span>
+                                            <i class="icon-base bx bx-log-out icon-sm" style="rotate: 180deg;"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="modal fade" id="themeSelect" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-simple">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="text-center mb-4">
+                                <h4 class="mb-2">Change Theme Style</h4>
+                                <p>Choose between light and dark theme for your interface.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-check custom-option custom-option-basic">
+                                        <label class="form-check-label custom-option-content" for="lightTheme">
+                                            <input name="themeRadio" class="form-check-input" type="radio" data-bs-theme-value="light">
+                                            <span class="custom-option-header">
+                                                <span class="h6 mb-0 d-flex align-items-center">
+                                                    <i class="icon-base bx bx-sun me-2"></i>Light Theme
+                                                </span>
+                                            </span>
+                                            <span class="custom-option-body">
+                                                <small>Bright and clean interface for daytime use.</small>
+                                                <div class="mt-2 theme-preview light-preview"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-check custom-option custom-option-basic">
+                                        <label class="form-check-label custom-option-content" for="darkTheme">
+                                            <input name="themeRadio" class="form-check-input" type="radio" data-bs-theme-value="dark">
+                                            <span class="custom-option-header">
+                                                <span class="h6 mb-0 d-flex align-items-center">
+                                                    <i class="icon-base bx bx-moon me-2"></i>Dark Theme
+                                                </span>
+                                            </span>
+                                            <span class="custom-option-body">
+                                                <small>Easier on the eyes for low-light environments.</small>
+                                                <div class="mt-2 theme-preview dark-preview"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .theme-preview {
+                    height: 80px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+                }
+
+                .dark-preview {
+                    background: linear-gradient(145deg, #2b2b2b 0%, #1e1e1e 100%) !important;
+                    border-color: rgba(255, 255, 255, 0.1) !important;
+                }
+
+                [data-bs-theme="dark"] .light-preview {
+                    border-color: rgba(255, 255, 255, 0.1) !important;
+                }
+            </style>
+
+            <div id="loader" class="content-skeleton">
+                <div class="skeleton-rounded-pill"></div>
+                <div class="skeleton-balance-card"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+                <div>
+                    <div class="skeleton-box"></div>
+                    <div class="skeleton-box"></div>
+                    <div class="skeleton-box"></div>
+                </div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+            </div>
+
+            <div id="layout-content" class="layout-page d-none">
+
+                <style>
+                    #layout-navbar {
+                        height: 65px;
+                    }
+
+                    @media (min-width: 1200px) {
+                        #layout-navbar {
+                            height: 90px;
+                            padding-top: 0.5rem;
+                            padding-bottom: 0.5rem;
+                        }
+                    }
+                </style>
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y px-0">
+                        <div id="alert-newsletter" class="alert alert-dismissible d-flex font-normal rounded-5 mx-2 d-none" role="alert">
+                            <div class="me-2 fs-6">
+                                <i class="icon-base bx bx-error text-solid-theme"></i>
+                            </div>
+                            <div>
+                                <div id="alert-newsletter-title" class="alert-heading fw-bold fs-6 mb-1 text-solid-theme"></div>
+                                <div id="alert-newsletter-content" class="text-solid-theme fs-7" style="line-height: 1rem;"></div>
+                            </div>
+                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="row g-4 mx-2">
+                            <div class="col-12 col-md-8">
+                                <div class="swiper-container two" style="background-color: var(--bs-body-bg);">
+                                    <div class="swiper-wrapper" style="background-color: var(--bs-body-bg);">
+                                        <div class="swiper-slide">
+                                            <div class="slider-image">
+                                                <img src="https://cdn.rumahotp.com/assets/img/banner/dashboard-1.png" class="rounded-4" alt="slide 1">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-image">
+                                                <img src="https://cdn.rumahotp.com/assets/img/banner/dashboard-2.png" class="rounded-4" alt="slide 2">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-image">
+                                                <img src="https://cdn.rumahotp.com/assets/img/banner/dashboard-3.png" class="rounded-4" alt="slide 3">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slider-image">
+                                                <img src="https://cdn.rumahotp.com/assets/img/banner/dashboard-4.png" class="rounded-4" alt="slide 4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="card rounded-4 position-relative virtual-number-cards">
+                                    <div class="card-body d-flex flex-column justify-content-between p-4" style="z-index: 2;">
+                                        <div class="d-flex align-items-center justify-content-between mb-3 ps-3">
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://cdn.rumahotp.com/assets/img/icons/misc/sim-card.png" alt="Icon" class="me-3" style="width: 40px; height: 40px; object-fit: contain;">
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Virtual Number</h6>
+                                                    <p class="text-muted mb-0 small">Buy temporary number!</p>
+                                                </div>
+                                            </div>
+                                            <a class="btn text-uppercase" style="background-color: #0A9EF5; color: #fff;" href="../../client/virtual-number">Buy</a>
+                                        </div>
+
+                                        <hr class="my-3" style="border-top: 1px solid #e0e0e0;">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://cdn.rumahotp.com/assets/img/icons/misc/announcement.png" alt="Announcement" style="width: 20px; height: 20px; margin-right: 10px;">
+                                            <marquee direction="left" scrollamount="3" style="font-size: 14px; flex-grow: 1;" id="text-info">Jangan transaksi pada pukul <span class="fw-semibold text-warning">23:00 WIB - 00:10 WIB</span> dikarenakan sedang <span class="fw-semibold text-warning">maintenance harian</span> dan transaksi akan <span class="fw-semibold text-danger">GAGAL</span> pada jam tersebut • Menemukan masalah atau bug? adukan kepada <a href="https://t.me/rumahotp_com" class="fw-semibold text-primary">customer service</a> kami</marquee>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sticky-container">
+                            <div class="nav nab-tabs d-flex overflow-x-auto pt-4 pb-2" style="gap: 0.5rem;">
+                                <div class="menu-item ms-4">
+                                    <button class="btn btn-sm rounded-pill menu-link border border-dark flex-shrink-0 text-black bg-white btn-menu-card" id="tab-populer" data-bs-toggle="tab" data-bs-target="#content-populer" role="tab" aria-controls="content-populer" aria-selected="true" onclick="selectButton(this)" data-value="content-populer" data-default="content-populer">🔥 Lagi Populer</button>
+                                </div>
+                                <div class="menu-item">
+                                    <button class="btn btn-sm rounded-pill menu-link border border-dark flex-shrink-0 text-black bg-white btn-menu-card" id="tab-games" data-bs-toggle="tab" data-bs-target="#content-games" role="tab" aria-controls="content-games" aria-selected="false" onclick="selectButton(this)" data-value="content-games" data-default="content-games">Games</button>
+                                </div>
+                                <div class="menu-item">
+                                    <button class="btn btn-sm rounded-pill menu-link border border-dark flex-shrink-0 text-black bg-white btn-menu-card" id="tab-paket-data" data-bs-toggle="tab" data-bs-target="#content-paket-data" role="tab" aria-controls="content-paket-data" aria-selected="false" onclick="selectButton(this)" data-value="content-paket-data" data-default="content-paket-data">Paket Data</button>
+                                </div>
+                                <button class="btn btn-sm rounded-pill border border-dark flex-shrink-0 text-black bg-white btn-menu-card">Pulsa & Transfer</button>
+                                <button class="btn btn-sm rounded-pill border border-dark flex-shrink-0 text-black bg-white btn-menu-card">Uang Digital</button>
+                                <button class="btn btn-sm rounded-pill border border-dark flex-shrink-0 text-black bg-white btn-menu-card">PDAM</button>
+                                <button class="btn btn-sm rounded-pill border border-dark flex-shrink-0 text-black bg-white btn-menu-card">Tagihan</button>
+                                <button class="btn btn-sm rounded-pill border border-dark flex-shrink-0 text-black bg-white btn-menu-card">Pascabayar</button>
+                            </div>
+                        </div>
+                        <div class="row g-4 mx-2">
+                            <div class="col-12 tab-content p-2">
+                                <div class="tab-pane fade mb-4 tab-dashboard show active" id="content-populer" role="tabpanel">
+                                    <h5 class="fw-bold mb-2 text-solid-theme">🔥 Lagi Populer</h5>
+                                    <div class="row g-3 home-card">
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/ewallet/dana/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">DANA</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" onclick="window.location.href='../../h2h/game/freefire';">
+                                                <img src="https://assets.rumahotp.com/h2h/game/freefire/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Free Fire</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/clash_of_clans/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Clash of Clans</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/genshin/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Genshin</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/indosat/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Indosat</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/xl/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">XL Axiata</h6>
+                                            </div>
+                                        </div>
+                                        <div class="populer-more col-4 col-sm-3 col-md-2 col-lg-1 soft-toggle soft-responsive">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/pubg/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">PUBG Mobile</h6>
+                                            </div>
+                                        </div>
+                                        <div class="populer-more col-4 col-sm-3 col-md-2 col-lg-1 soft-toggle soft-responsive">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/mobilelegends/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Mobile Legends</h6>
+                                            </div>
+                                        </div>
+                                        <div class="populer-more col-4 col-sm-3 col-md-2 col-lg-1 soft-toggle soft-responsive">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/roblox/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Roblox</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-md-none">
+                                            <div class="text-center fw-semibold" style="color: #1A237E;" onclick="handleMore(this, '.populer-more')" data-type="show">Tampilkan Lebih Banyak</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade mb-4 tab-dashboard show active" id="content-games" role="tabpanel">
+                                    <h5 class="fw-bold mb-2 text-solid-theme">Games</h5>
+                                    <div class="row g-3">
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/call_of_duty_mobile/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Call Of Duty</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/pointblank/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Point Blank</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/clash_of_clans/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Clash of Clans</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/genshin/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Genshin</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" onclick="window.location.href='../../h2h/game/freefire';">
+                                                <img src="https://assets.rumahotp.com/h2h/game/freefire/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Free Fire</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/pubg/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">PUBG Mobile</h6>
+                                            </div>
+                                        </div>
+                                        <div class="game-more col-4 col-sm-3 col-md-2 col-lg-1 soft-toggle soft-responsive">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/mobilelegends/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Mobile Legends</h6>
+                                            </div>
+                                        </div>
+                                        <div class="game-more col-4 col-sm-3 col-md-2 col-lg-1 soft-toggle soft-responsive">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/game/roblox/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Roblox</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-md-none">
+                                            <div class="text-center fw-semibold" style="color: #1A237E;" onclick="handleMore(this, '.game-more')" data-type="show">Tampilkan Lebih Banyak</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade mb-4 tab-dashboard show active" id="content-paket-data" role="tabpanel">
+                                    <h5 class="fw-bold mb-2 text-solid-theme">Paket Data</h5>
+                                    <div class="row g-3">
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/indosat/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Indosat</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/xl/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">XL Axiata</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/smartfren/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Smartfren</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/telkomsel/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Telkomsel</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/byu/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">By.U</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-3 col-md-2 col-lg-1">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/axis/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Axis</h6>
+                                            </div>
+                                        </div>
+                                        <div class="kuota-more col-4 col-sm-3 col-md-2 col-lg-1 soft-toggle soft-responsive">
+                                            <div class="card p-2 h-100" style="border-radius: 0.825rem;" data-bs-toggle="modal" data-bs-target="#maintenance-dialog-modal">
+                                                <img src="https://assets.rumahotp.com/h2h/kuota/three/icon.jpg" class="mb-1_5" alt="icon" style="border-radius: 0.825rem;">
+                                                <h6 class="text-center mb-0 text-solid-theme" style="font-size: 80%;">Three</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-md-none">
+                                            <div class="text-center fw-semibold" style="color: #1A237E;" onclick="handleMore(this, '.kuota-more')" data-type="show">Tampilkan Lebih Banyak</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <div class="rounded-5 border position-relative p-6">
+                                    <div class="row g-3">
+                                        <div class="col-md-4 order-md-1 order-1 text-center">
+                                            <img src="https://cdn.rumahotp.com/assets/img/illustrations/map-404.png" alt="not found" style="height: 120px;">
+                                        </div>
+
+                                        <div class="col-md-8 order-md-2 order-2">
+                                            <h6 class="fw-semibold text-center text-solid-theme mb-0">Gak nemu yang kamu cari?</h6>
+                                            <p class="fs-tiny text-center text-solid-theme">Kasih tau kami produk atau layanan yang harusnya ada di RumahOTP.</p>
+                                            <div class="d-flex justify-content-center">
+                                                <button type="button" class="btn btn-outline-primary rounded-pill" onclick="window.location.href='https://t.me/rumahotp_com';">Kasih saran produk baru</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body text-center p-5">
+                                        <div class="mb-4 d-flex justify-content-center align-items-center">
+                                            <img src="https://cdn.rumahotp.com/assets/img/illustrations/greeting.png" alt="greeting" height="100" width="100">
+                                        </div>
+                                        <h3 class="mb-3">WELCOME!</h3>
+                                        <p class="mb-4">Selamat datangg, mari kita lihat beberapa layanan yang kami sediakan ^_^</p>
+                                        <div class="d-flex justify-content-center gap-3">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Skip for now</button>
+                                            <button type="button" class="btn btn-primary" id="startTourBtn">Start a tour</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+                            #welcomeModal .modal-content {
+                                border: none;
+                                border-radius: 12px;
+                            }
+
+                            #welcomeModal .modal-body {
+                                padding: 2.5rem;
+                            }
+
+                            #welcomeModal h3 {
+                                font-weight: 700;
+                                color: var(--bs-dark);
+                            }
+
+                            #welcomeModal .btn {
+                                min-width: 120px;
+                            }
+                        </style>
+
+                        <div class="modal fade" id="maintenance-dialog-modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body text-center p-5">
+                                        <div class="mb-4">
+                                            <i class="bx bx-error-circle bx-lg text-warning" style="font-size: 4rem;"></i>
+                                        </div>
+                                        <h3 class="mb-3">MAINTENANCE!</h3>
+                                        <p class="mb-4">Sistem ini akan segera hadir, tunggu dan lihat info di saluran yahh, terimakasih ^_^</p>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okay!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+                            #maintenance-dialog-modal .modal-content {
+                                border: none;
+                                border-radius: 12px;
+                            }
+
+                            #maintenance-dialog-modal .modal-body {
+                                padding: 2.5rem;
+                            }
+
+                            #maintenance-dialog-modal h3 {
+                                font-weight: 700;
+                                color: var(--bs-dark);
+                            }
+                        </style>
+
+                        <div class="offcanvas offcanvas-start font-normal" tabindex="-1" id="offcanvas-tutorial" aria-labelledby="offcanvas-tutorial-label">
+                            <div class="offcanvas-header d-flex justify-content-between align-items-center border-bottom">
+                                <div class="d-flex align-items-center mb-4">
+                                    <i class="bx bx-bulb text-solid-theme me-2 fs-4"></i>
+                                    <div class="offcanvas-title fw-bold text-solid-theme mb-0" id="offcanvas-tutorial-label">Tutorial dan Informasi</div>
+                                </div>
+                                <div class="badge rounded-pill d-inline-flex align-items-center text-solid-theme mb-4" style="background: rgba(var(--bs-theme-rgb), 0.3); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);">
+                                    <i class="bx bx-file me-2"></i>Penting!
+                                </div>
+                            </div>
+                            <div class="offcanvas-body p-0" style="background: var(--bs-body-bg);">
+                                <div class="p-6" style="background: var(--bs-paper-bg);">
+                                    <div class="fw-semibold text-solid-theme fs-7">Pahami segala <span class="fw-bold">informasi</span> yang telah kami berikan serta <span class="fw-bold">perhatikan</span> segala <span class="fw-bold">syarat</span> dan <span class="fw-bold">ketentuan</span> yang berlaku pada website termasuk segala <span class="fw-bold">resiko</span> yang anda alami jika akan membeli nomor virtual.</div>
+                                </div>
+                                <div class="nav-align-top mb-4">
+                                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link active fw-bold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-refund" aria-controls="navs-tabs-refund" aria-selected="true">
+                                                <i class="tf-icons bx bx-monetized-coin me-2"></i> Refund
+                                            </button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link fw-bold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-ketentuan" aria-controls="navs-tabs-ketentuan" aria-selected="false">
+                                                <i class="tf-icons bx bx-dollar-tag me-2"></i> Ketentuan
+                                            </button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button type="button" class="nav-link fw-bold" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-tutorial" aria-controls="navs-tabs-tutorial" aria-selected="false">
+                                                <i class="tf-icons bx bx-bulb me-2"></i> Tutorial
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" style="background: var(--bs-body-bg);">
+                                        <div class="tab-pane fade show active" id="navs-tabs-refund" role="tabpanel">
+                                            <div class="card rounded-4 border shadow-none mb-4">
+                                                <div class="card-header bg-label-secondary border-bottom py-3 px-5">
+                                                    <div class="text-solid-theme d-inline-flex align-items-center fw-bold">
+                                                        <i class="bx bx-dollar-bag me-2"></i> Refund Otomatis
+                                                    </div>
+                                                </div>
+                                                <div class"card-body p-4">
+                                                    <div class="fw-semibold p-4">
+                                                        <div class="d-flex align-items-start mb-4">
+                                                            <div class="rounded-circle d-flex align-items-center justify-content-center p-1 me-2" style="background-color:#DCFCE7;">
+                                                                <i class="bx bx-check-badge" style="color:#16A34A;"></i>
+                                                            </div>
+                                                            <span class="text-secondary fw-normal fs-6">Pesanan belum pernah menerima SMS ataupun code verifikasi sebelumnya.</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-start mb-4">
+                                                            <div class="rounded-circle d-flex align-items-center justify-content-center p-1 me-2" style="background-color:#DCFCE7;">
+                                                                <i class="bx bx-check-badge" style="color:#16A34A;"></i>
+                                                            </div>
+                                                            <span class="text-secondary fw-normal fs-6">Status orderan bukan resend yang telah menerima SMS ataupun code verifikasi.</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-start mb-4">
+                                                            <div class="rounded-circle d-flex align-items-center justify-content-center p-1 me-2" style="background-color:#DCFCE7;">
+                                                                <i class="bx bx-check-badge" style="color:#16A34A;"></i>
+                                                            </div>
+                                                            <span class="text-secondary fw-normal fs-6">Saldo dikembalikan 100% sesuai dengan nominal pembelian nomor tanpa potongan sedikitpun.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none">
+                                                <div class="card-header bg-label-secondary border-bottom py-3 px-5">
+                                                    <div class="text-solid-theme d-inline-flex align-items-center fw-bold">
+                                                        <i class="bx bx-dollar-auto me-2"></i> Refund Admin
+                                                    </div>
+                                                </div>
+                                                <div class"card-body p-4">
+                                                    <div class="fw-semibold p-4">
+                                                        <div class="d-flex align-items-start mb-4">
+                                                            <div class="rounded-circle d-flex align-items-center justify-content-center p-1 me-2" style="background-color:#DCFCE7;">
+                                                                <i class="bx bx-check-badge" style="color:#16A34A;"></i>
+                                                            </div>
+                                                            <span class="text-secondary fw-normal fs-6">Mengalami bug system error karena perbaikan, maintenance atau kesalahan yang disebabkan oleh admin.</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-start mb-4">
+                                                            <div class="rounded-circle d-flex align-items-center justify-content-center p-1 me-2" style="background-color:#DCFCE7;">
+                                                                <i class="bx bx-check-badge" style="color:#16A34A;"></i>
+                                                            </div>
+                                                            <span class="text-secondary fw-normal fs-6">Mengalami masalah pada nomor (kecuali banned, 2fa, pin, code verifikasi expired, telat memasukkan code verifikasi).</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-start mb-4">
+                                                            <div class="rounded-circle d-flex align-items-center justify-content-center p-1 me-2" style="background-color:#DCFCE7;">
+                                                                <i class="bx bx-check-badge" style="color:#16A34A;"></i>
+                                                            </div>
+                                                            <span class="text-secondary fw-normal fs-6">Saldo dikembalikan 100% sesuai dengan nominal pembelian nomor tanpa potongan sedikitpun.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="navs-tabs-ketentuan" role="tabpanel">
+                                            <div class="card rounded-4 border p-4">
+                                                <div class="fw-bold text-solid-theme fs-6">Syarat dan Ketentuan</div>
+                                                <div class="fs-7">
+                                                    Jasa OTP adalah penyedia layanan OTP untuk semua aplikasi yang memerlukan verifikasi. Anda tidak perlu repot membeli kartu SIM baru, kami selalu siap 30x24 jam untuk Anda.<br><span class="fw-bold">Semuanya otomatis!</span><br><br>
+                                                    Layanan ini menyediakan nomor telepon sementara yang dapat digunakan untuk keperluan non-pribadi seperti verifikasi akun online, registrasi layanan, dll. Nomor telepon yang disediakan bersifat sementara dan tidak dapat dianggap sebagai nomor telepon <span class="fw-bold">pribadi yang tetap.</span><br><br>
+                                                    Beberapa syarat dan ketentuan yang berlaku pada website yang harus dipertimbangkan oleh pengguna layanan kami sebelum memakai atau bertransaksi pada website:
+                                                </div>
+                                                <hr>
+                                                <div class="ms-4 fw-bold text-solid-theme fs-6">1. Ketentuan refund</div>
+                                                <div class="ms-4 fs-7">Tidak ada opsi pengembalian dana (refund) yang tersedia dalam situasi apa pun, termasuk pada:</div>
+                                                <div class="ms-8 fs-7">
+                                                    <div class="mb-1 d-flex">
+                                                        <span class="fw-bold me-1 flex-shrink-0">•</span>
+                                                        <span>nomor yang didapat sudah terdaftar di platform tujuan.</span>
+                                                    </div>
+                                                    <div class="mb-1 d-flex">
+                                                        <span class="fw-bold me-1 flex-shrink-0">•</span>
+                                                        <span>nomor terkendala verifikasi dua langkah (2FA) saat pendaftaran.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ms-4 fs-7 mt-2">Semua transaksi bersifat final setelah nomor OTP dikirimkan kepada pengguna.</div>
+                                                <div class="ms-4 fs-7 mt-2">Pengguna dianggap telah menyetujui ketentuan ini sebelum melakukan pemesanan layanan.</div>
+                                                <div class="ms-4 fw-bold text-solid-theme fs-6 mt-3">2. Penolakan Tanggung Jawab</div>
+                                                <div class="ms-4 fs-7">
+                                                    <div class="mb-1 d-flex">
+                                                        <span class="fw-bold me-1 flex-shrink-0">•</span>
+                                                        <span>Kami tidak bertanggung jawab atas penggunaan yang salah atau penyalahgunaan nomor telepon yang disediakan.</span>
+                                                    </div>
+                                                    <div class="mb-1 d-flex">
+                                                        <span class="fw-bold me-1 flex-shrink-0">•</span>
+                                                        <span>Kami berhak untuk membatalkan layanan dan menutup akun pengguna yang melanggar syarat dan ketentuan ini tanpa pemberitahuan sebelumnya.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="navs-tabs-tutorial" role="tabpanel">
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-search fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Check nomor terlebih dahulu</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Check nomor terlebih dahulu terdaftar atau tidak pada aplikasi terkait, jika terindikasi terdaftar maka jangan meminta code verifikasi lalu ganti dengan nomor baru.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-check-badge fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Pilih nomor dengan rate tinggi</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Carilah nomor dengan persentase keberhasilan yang tinggi agar code SMS lebih cepat masuk atau bertanya pada admin statistik nomor saat ini.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-memory-card fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Beli banyak nomor sekaligus</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Beli beberapa nomor sekaligus kemudian coba satu persatu lalu tunggu hingga salah satu nomor menerima kode verifikasi.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-monetized-coin fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Gunakan VPN atau proxy</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Gunakan server VPN atau proxy guna mengelabuhi sistem keamanan aplikasi, gunakan berdasarkan region nomor yang akan di gunakan, lebih disarankan menggunakan proxy daripada VPN.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bxl-whatsapp fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Pakai WhatsApp Business</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Untuk aplikasi WhatsApp disarankan agar menggunakan aplikasi WhatsApp business karena WhatsApp messenger biasa terkadang lebih ketat keamanannya bagi user, jika butuh banyak nomor maka gunakan cara verifikasi kode di WhatsApp business kemudian jika berhasil login pindahkan akun tersebut ke WhatsApp messenger.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bxl-telegram fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Pakai Telegram Website</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Untuk aplikasi Telegram disarankan agar menggunakan telegram web mode dekstop karena Aplikasi telegram terkadang memunculkan peringkatan keamanan misalnya "biaya sms yang tinggi", jika butuh banyak nomor maka gunakan cara verifikasi kode di telegram web dekstop kemudian jika berhasil login pindahkan akun tersebut ke Aplikasi telegram.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-dollar-bag fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Manfaatkan refund cancel</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Anda bisa mencoba hingga beberapa puluh bahkan ratusan kali hingga mendapatkan SMS code verifikasi tanpa khawatir saldo akan terpotong karena terlalu sering mencoba.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-dollar-tag fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Manfaatkan promo discount</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Terkadang ada discount yang tidak terduga seperti WhatsApp seharga Rp800 dan promo lainnya, gunakan kesempatan ini untuk meningkatkan keuntungan.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-time-hand fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Tunggu dengan sabar</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Jika kode tak kunjung masuk maka coba untuk menunggu beberapa menit karena terkadang SMS code delay masuk ke sistem website.</div>
+                                            </div>
+                                            <div class="card rounded-4 border shadow-none p-4 mb-4">
+                                                <div class="d-flex align-items-start mb-4">
+                                                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-label-primary p-1 me-2">
+                                                        <i class="bx bx-package-clock fs-5"></i>
+                                                    </div>
+                                                    <div class="text-solid-theme fw-bold fs-5">Tunggu restock baru</div>
+                                                </div>
+                                                <div class="fw-semibold text-solid-theme fs-7">Kalau masalah masih tetap berlanjut coba untuk menunggu stock baru yang lebih fresh guna meningkatkan persentase keberhasilan nomor karena mungkin nomor saat ini adalah nomor stock sisa yang terakhir.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offcanvas-footer p-6 border-top">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="agreement">
+                                    <label class="form-check-label" for="agreement">Saya telah membaca semuanya</label>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-5">
+                                        <button type="button" class="btn btn-secondary w-100" style="height: 48px;" data-bs-dismiss="offcanvas">Tutup</button>
+                                    </div>
+                                    <div class="col-7">
+                                        <button type="button" class="btn btn-primary w-100" style="height: 48px;" id="button_finish" disabled>
+                                            Selesai<i class="bx bx-check-badge ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <nav class="navbar navbar-expand fixed-bottom d-block sneat-bottom-navbar">
+                <div class="container-fluid px-0">
+                    <ul class="navbar-nav sneat-bottom-nav w-100">
+                        <div class="d-flex justify-content-around flex-grow-1 pe-4">
+                            <li class="nav-item">
+                                <a class="sneat-nav-link active" href="../../dashboard" data-target="../../dashboard">
+                                    <i class='bx bxs-home-2'></i>
+                                    <span class="sneat-nav-text">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item me-4">
+                                <a class="sneat-nav-link" href="../../client/topup" data-target="../../client/topup">
+                                    <i class='bx bx-ewallet'></i>
+                                    <span class="sneat-nav-text">Deposit</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <li class="nav-item fab-item">
+                            <a class="sneat-nav-link fab-link" href="../../client/virtual-number" data-target="../../client/virtual-number">
+                                <img src="https://cdn.rumahotp.com/assets/img/icons/misc/shop.png" width="32" height="32" alt="Order" class="fab-icon">
+                            </a>
+                        </li>
+
+                        <div class="d-flex justify-content-around flex-grow-1 ps-4">
+                            <li class="nav-item ms-4">
+                                <a class="sneat-nav-link" href="../../client/activity" data-target="../../client/activity">
+                                    <i class='bx bx-activity'></i>
+                                    <span class="sneat-nav-text">Activity</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="sneat-nav-link" href="../../client/profile" data-target="../../client/profile">
+                                    <i class='bx bx-user-alt'></i>
+                                    <span class="sneat-nav-text">Profile</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/popper/popper.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/bootstrap.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@algolia/autocomplete-js.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/menu.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/newsletter.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/page-navbars.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/main.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/tips.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/shepherd/shepherd.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js'></script>
+    <script src="https://cdn.rumahotp.com/assets/js/page/tour.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/page/dashboard.js"></script>
+    <script>
+        function handleMore(element, selector) {
+            const type = element.dataset.type
+            if (type === "show") {
+                element.textContent = "Tampilkan Lebih Sedikit"
+                element.dataset.type = "hide"
+                document.querySelectorAll(selector).forEach(c => {
+                    c.classList.add("show");
+                })
+            } else {
+                element.textContent = "Tampilkan Lebih Banyak"
+                element.dataset.type = "show"
+                document.querySelectorAll(selector).forEach(c => {
+                    c.classList.remove("show");
+                })
+            }
+        }
+
+        function openTabs(id) {
+            document.querySelectorAll('.tab-pane').forEach(el => {
+                el.classList.remove('show', 'active')
+            })
+            const pane = document.querySelector(id)
+            if (pane) {
+                pane.classList.add('active')
+                setTimeout(() => pane.classList.add('show'), 10)
+            }
+        }
+
+        function selectButton(element) {
+            const value = element.dataset.value;
+            document.querySelectorAll(".btn-menu-card").forEach(c => {
+                c.dataset.value = c.dataset.default
+            })
+            if (value === "all") {
+                document.querySelectorAll(".tab-dashboard").forEach(c => {
+                    c.classList.add("show", "active");
+                })
+            } else {
+                document.querySelectorAll(".tab-dashboard").forEach(c => {
+                    c.classList.remove("show", "active");
+                    if (c.id === value) {
+                        c.classList.add("show", "active")
+                    }
+                })
+                element.dataset.value = "all"
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- © 2025 • VredenCloud -->
