@@ -1,0 +1,1362 @@
+<!doctype html>
+<html lang="id" class=" layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-skin="default" data-assets-path="https://cdn.rumahotp.com/assets/" data-template="rumah-otp" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Order Virtual Number - RumahOTP</title>
+    <meta name="description" content="Nomor virtual murah dan berkualitas untuk ribuan aplikasi dari seluruh negara. Tersedia juga layanan REST API untuk kebutuhan integrasi verifikasi Anda, mulai dari Rp1.000!" />
+
+    <link rel="canonical" href="https://www.rumahotp.com" />
+    <link rel="icon" type="image/x-icon" href="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/fonts/iconify-icons.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr-themes.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/css/core-custom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/css/demo.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/fab-navbars/bottom.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/toast/toast.css" />
+    <link rel="stylesheet" href="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/skeleton/skeleton.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/helpers.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/template-customizer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/config.js"></script>
+</head>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body>
+    <div id="container-wrapper" class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+        <div class="layout-container">
+            <div class="modal fade" id="themeSelect" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-simple">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="text-center mb-4">
+                                <h4 class="mb-2">Change Theme Style</h4>
+                                <p>Choose between light and dark theme for your interface.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-check custom-option custom-option-basic">
+                                        <label class="form-check-label custom-option-content" for="lightTheme">
+                                            <input name="themeRadio" class="form-check-input" type="radio" data-bs-theme-value="light">
+                                            <span class="custom-option-header">
+                                                <span class="h6 mb-0 d-flex align-items-center">
+                                                    <i class="icon-base bx bx-sun me-2"></i>Light Theme
+                                                </span>
+                                            </span>
+                                            <span class="custom-option-body">
+                                                <small>Bright and clean interface for daytime use.</small>
+                                                <div class="mt-2 theme-preview light-preview"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-check custom-option custom-option-basic">
+                                        <label class="form-check-label custom-option-content" for="darkTheme">
+                                            <input name="themeRadio" class="form-check-input" type="radio" data-bs-theme-value="dark">
+                                            <span class="custom-option-header">
+                                                <span class="h6 mb-0 d-flex align-items-center">
+                                                    <i class="icon-base bx bx-moon me-2"></i>Dark Theme
+                                                </span>
+                                            </span>
+                                            <span class="custom-option-body">
+                                                <small>Easier on the eyes for low-light environments.</small>
+                                                <div class="mt-2 theme-preview dark-preview"></div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .theme-preview {
+                    height: 80px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+                }
+
+                .dark-preview {
+                    background: linear-gradient(145deg, #2b2b2b 0%, #1e1e1e 100%) !important;
+                    border-color: rgba(255, 255, 255, 0.1) !important;
+                }
+
+                [data-bs-theme="dark"] .light-preview {
+                    border-color: rgba(255, 255, 255, 0.1) !important;
+                }
+            </style>
+
+            <div id="loader" class="content-skeleton">
+                <div class="skeleton-rounded-pill"></div>
+                <div class="skeleton-balance-card"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+                <div>
+                    <div class="skeleton-box"></div>
+                    <div class="skeleton-box"></div>
+                    <div class="skeleton-box"></div>
+                </div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-text"></div>
+                <div class="skeleton-text short"></div>
+            </div>
+
+            <div id="layout-content" class="layout-page d-none">
+                <style>
+                    .glass {
+                        background: rgba(255, 255, 255, 0.2) !important;
+                        backdrop-filter: blur(7px);
+                        -webkit-backdrop-filter: blur(7px);
+                    }
+
+                    .accordion-button .accordion-chevron {
+                        transition: transform 0.3s ease;
+                    }
+
+                    .accordion-button:not(.collapsed) .accordion-chevron {
+                        transform: rotate(180deg);
+                    }
+
+                    ::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    body {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+
+                    .rotate {
+                        animation: rotate 4s linear infinite;
+                    }
+
+                    @keyframes rotate {
+                        from {
+                            transform: rotate(0deg);
+                        }
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    .fade-in {
+                        animation: fadeIn 1s ease-in-out forwards;
+                    }
+
+                    .fade-out {
+                        animation: fadeOut 1s ease-in-out forwards;
+                    }
+
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                        }
+                        to {
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes fadeOut {
+                        from {
+                            opacity: 1;
+                        }
+                        to {
+                            opacity: 0;
+                        }
+                    }
+
+                    .bounce-up {
+                        opacity: 0;
+                        transform: translateY(50px) scale(0.9);
+                        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    }
+
+                    .bounce-up.animated {
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                    }
+
+.click-anim {
+  transition: transform 0.1s ease;
+}
+
+.click-anim:active {
+  transform: scale(0.92);
+}
+                </style>
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 py-3 px-5">
+                        <div class="d-flex justify-content-between align-items-center my-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-online">
+                                    <img id="header-profile-img" src="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" alt class="rounded-circle bg-label-secondary" onerror="https://cdn.rumahotp.com/assets/img/favicon/favicon.ico" />
+                                </div>
+                                <div class="ms-2">
+                                    <div class="text-solid-theme fs-6 fw-semibold" id="header-username"></div>
+                                    <div class="text-secondary fs-8" id="header-sapaan"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex justify-content-center align-items-center text-secondary" style="background-color: var(--bs-paper-bg); padding: 10px; border-radius: 10px;" data-bs-toggle="modal" data-bs-target="#themeSelect">
+                                    <i class="icon-base bx bx-sun icon-sm"></i>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center text-secondary ms-2" style="background-color: var(--bs-paper-bg); padding: 10px; border-radius: 10px;" onclick="window.location.href='../../client/profile';">
+                                    <i class="icon-base bx bx-user icon-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 mt-3">
+                            <div class="col-12 col-sm-6">
+                                <div class="card rounded-5 p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex justify-content-center align-items-center text-white rounded-circle ms-2" style="background-image: linear-gradient(135deg, rgb(242, 110, 90) 0%, rgb(245, 138, 61) 50%, rgb(89, 192, 166) 100%); padding: 11px;">
+                                                <i class="icon-base bx bx-wallet"></i>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="text-secondary fw-semibold fs-tiny">Saldo Kamu</div>
+                                                <div class="text-solid-theme fw-semibold fs-6" id="header-saldo"></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn d-flex align-items-center bg-label-success text-solid-success rounded-5">
+                                            <i class="bx bx-link-external me-1"></i> Top Up
+                                        </button>
+                                    </div>
+                                    <hr class="my-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="badge d-flex align-items-center rounded-pill fs-9" id="socket-status"></div>
+                                        <div class="mx-3" style="width: 1px; height: 30px; background: var(--bs-gray-200);"></div>
+                                        <div class="fs-9 text-solid-theme" id="socket-latensi"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="card click-anim p-4" style="background-image: linear-gradient(135deg, rgb(242, 110, 90) 0%, rgb(245, 138, 61) 50%, rgb(89, 192, 166) 100%); border-radius: 26px;" onclick="handleSound();" data-bs-toggle="offcanvas" data-bs-target="#orders-popup" aria-controls="orders-popup">
+                                    <div class="text-center mb-4">
+                                        <div class="fw-semibold text-white fs-6">Get Virtual Number</div>
+                                        <div class="text-white fs-micro">OTP access for 1,038+ apps<br>across 193 countries</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-center align-items-center" style="position: relative; height: 40px;">
+                                            <div class="position-absolute" style="left: calc(50% + 10px); z-index: 1;">
+                                                <div class="d-flex justify-content-center align-items-center text-secondary rounded-circle glass" style="padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                                    <img src="https://assets.rumahotp.com/apps/wa.png" class="rounded-2" height="20" width="20">
+                                                </div>
+                                            </div>
+                                            <div class="position-absolute" style="left: calc(50% + 35px); z-index: 2;">
+                                                <div class="d-flex justify-content-center align-items-center text-secondary rounded-circle glass" style="padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                                    <img src="https://assets.rumahotp.com/apps/tg.png" class="rounded-2" height="20" width="20">
+                                                </div>
+                                            </div>
+                                            <div class="position-absolute" style="left: calc(50% + 60px); z-index: 3;">
+                                                <div class="d-flex justify-content-center align-items-center text-secondary rounded-circle glass" style="padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                                    <img src="https://assets.rumahotp.com/apps/fb.png" class="rounded-2" height="20" width="20">
+                                                </div>
+                                            </div>
+                                            <div class="position-absolute" style="left: calc(50% + 85px); z-index: 4;">
+                                                <div class="d-flex justify-content-center align-items-center text-secondary rounded-circle glass" style="padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                                    <img src="https://assets.rumahotp.com/apps/ot.png" class="rounded-2" height="20" width="20">
+                                                </div>
+                                            </div>
+                                            <div class="position-absolute" style="left: calc(50% + 110px); z-index: 5;">
+                                                <div class="d-flex justify-content-center align-items-center text-secondary rounded-circle glass" style="padding: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                                                    <div class="text-white d-flex justify-content-center align-items-center text-nowrap fw-semibold fs-tiny" style="height: 20px; width: 20px;">+99</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center text-white">
+                                            <div class="fw-semibold fs-6">Beli Nomor</div>
+                                            <i class="icon-base bx bx-chevron-right icon-sm ms-1" style="margin-top: 2px;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card d-md-none rounded-5 p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <div class="text-solid-theme fw-bold">Pesanan Pending</div>
+                                        <button type="button" class="btn btn-outline-primary btn-sm rounded-2" onclick="refreshOrders();">
+                                            <i class="bx bx-refresh"></i>
+                                        </button>
+                                    </div>
+                                    <div class="row g-4 mb-2" id="pending-orders-mobile">
+                                        <div class="col-12">
+                                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                                <img src="https://cdn.rumahotp.com/assets/img/illustrations/package-404.png" height="100" width="100">
+                                                <div class="text-theme-adaptive fs-6 fw-semibold">Tidak ada pesanan</div>
+                                                <div class="text-secondary fs-8 mb-4">Pesanan aktif akan muncul disini</div>
+                                                <button class="btn rounded-pill p-3" style="background-color: var(--bs-lights-bg); color: var(--bs-lights-color);" onclick="handleSound();" data-bs-toggle="offcanvas" data-bs-target="#orders-popup" aria-controls="orders-popup">
+                                                    <i class="bx bx-plus me-1"></i> Buat Pesanan
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card d-none d-md-flex rounded-5 p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <div class="text-solid-theme fw-bold">Pesanan Pending</div>
+                                        <button type="button" class="btn btn-outline-primary btn-sm rounded-2" onclick="refreshOrders();">
+                                            <i class="bx bx-refresh"></i>
+                                        </button>
+                                    </div>
+                                    <div class="table-responsive text-nowrap mb-2">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th class="px-2">SRV</th>
+                                                    <th class="px-2">Layanan</th>
+                                                    <th class="px-2">Nomor</th>
+                                                    <th class="px-2">Harga</th>
+                                                    <th class="px-2 text-center">Status</th>
+                                                    <th class="px-2 text-center">Code</th>
+                                                    <th class="px-2 text-center">Tindakan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="pending-orders-dekstop">
+                                                <tr>
+                                                    <td colspan="7" class="text-center py-4">
+                                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                                            <img src="https://cdn.rumahotp.com/assets/img/illustrations/package-404.png" height="100" width="100">
+                                                            <div class="text-theme-adaptive fs-6 fw-semibold">Tidak ada pesanan</div>
+                                                            <div class="text-secondary fs-8 mb-4">Pesanan aktif akan muncul disini</div>
+                                                            <button class="btn rounded-pill p-3" style="background-color: var(--bs-lights-bg); color: var(--bs-lights-color);" onclick="handleSound();" data-bs-toggle="offcanvas" data-bs-target="#orders-popup" aria-controls="orders-popup">
+                                                                <i class="bx bx-plus me-1"></i> Buat Pesanan
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="card rounded-5 p-4">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bx bx-bell fs-5 me-2 text-primary"></i>
+                                        <div class="text-solid-theme fw-bold">Notifikasi</div>
+                                    </div>
+                                    <hr class="mt-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <div class="d-flex align-items-center" id="notifikasi-status">
+                                            <span class="rounded-circle bg-secondary me-2" style="height: 8px; width: 8px;"></span>
+                                            <div class="fw-light fs-tiny">Tidak Aktif</div>
+                                        </div>
+                                        <div class="d-flex align-items-center" id="notifikasi-type">
+                                            <i class="bx bxl-chrome text-secondary me-1"></i>
+                                            <div class="fw-light fs-tiny">Browser</div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <button type="button" class="btn bg-label-secondary border rounded-1 w-100 fs-7 fw-light text-solid-theme" style="height: 42px;" id="notifikasi-button-change" data-next="browser" onclick="changeNotifikasi();">
+                                                <i class="bx bx-sort me-2" style="transform: rotate(90deg);"></i>
+                                                Browser
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-primary rounded-1 w-100 fs-7 fw-light" style="height: 42px;" id="notifikasi-button-active" onclick="handleSubs(true);">Aktifkan</button>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="rounded-4" style="border-left: 2px solid var(--bs-primary); background: color-mix(in sRGB, var(--bs-paper-bg) 95%, var(--bs-primary));">
+                                                <div class="rounded-4 p-3 border">
+                                                    <div class="fw-bold text-solid-theme fs-7">Message Notifikasi Real-time</div>
+                                                    <span class="fw-light fs-tiny text-secondary">Disarankan menggunakan notifikasi real-time agar SMS message dapat di terima tepat waktu tanpa delay walaupun situs ditutup saat mendaftar nomor.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="card rounded-5 p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="d-flex justify-content-center align-items-center bg-label-primary" style="padding: 10px; border-radius: 10px;">
+                                            <i class="icon-base bx bx-support icon-sm"></i>
+                                        </div>
+                                        <div class="ms-2">
+                                            <div class="text-solid-theme fw-bold">Pertanyaan Umum</div>
+                                            <div class="fs-tiny">Pertanyaan yang sering di ajukan</div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion neo-accordion" id="question-otp">
+                                        <div class="accordion-item rounded-4 bg-label-secondary mb-3">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed d-flex align-items-center bg-label-secondary py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#question-1">
+                                                    <div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="padding: 8px; background: var(--bs-paper-bg); color: var(--bs-orange);">
+                                                        <i class="bx bx-brain"></i>
+                                                    </div>
+                                                    <span class="fw-normal text-solid-theme flex-grow-1">Ayo belajar membaca!</span>
+                                                    <i class="bx bx-chevron-down accordion-arrow"></i>
+                                                </button>
+                                            </h2>
+                                            <div id="question-1" class="accordion-collapse collapse" data-bs-parent="#question-otp">
+                                                <div class="accordion-body px-4 pb-4">
+                                                    <p class="text-solid-theme fs-8 mb-3">Baca dan lihat info sebelum melakukan deposit atau membeli pada website, harap tidak egois atau bersikap arogan karena segala info telah tertulis <span class="fw-bold">LENGKAP</span> dalam FAQ<br></br>jika system maintenance itu berarti sedang dalam perbaikan, orderan kosong berarti stock nomor habis dan belum di restock bukan berarti <span class="fw-bold">Tidak Dapat Order!</span><br></br>segala info telah di tulis sejelas mungkin mohon untuk <span class="fw-bold">MEMBACA</span> info atau notifikasi pada website sebelum menyimpulkan tindakan.<br></br>Jadilah SDM yang berkualitas!</p>
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <button class="btn btn-sm btn-glass-primary" onclick="window.location.href='https://t.me/rumahotp_com';">
+                                                            <i class="bx bx-support me-1"></i> Instant Help
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item rounded-4 bg-label-secondary mb-3">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed d-flex align-items-center bg-label-secondary py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#question-2">
+                                                    <div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="padding: 8px; background: var(--bs-paper-bg); color: var(--bs-orange);">
+                                                        <i class="bx bx-info-circle"></i>
+                                                    </div>
+                                                    <span class="fw-normal text-solid-theme flex-grow-1">OTP gak masuk masuk</span>
+                                                    <i class="bx bx-chevron-down accordion-arrow"></i>
+                                                </button>
+                                            </h2>
+                                            <div id="question-2" class="accordion-collapse collapse" data-bs-parent="#question-otp">
+                                                <div class="accordion-body px-4 pb-4">
+                                                    <p class="text-solid-theme fs-8 mb-3">Kendala ini dapat terjadi karena faktor perangkat pengguna atau ketersediaan stok dari penyedia yang sedang kurang stabil.<br></br>Perlu diingat, nomor yang digunakan adalah <span class="fw-bold">nomor kosong</span>, bukan seperti <span class="fw-bold">kartu pribadi</span> yang kamu beli langsung dari operator, sehingga wajar jika sesekali mengalami kendala. Check nomor terlebih dahulu sebelum melakukan pendaftaran. Kamu mungkin perlu mencoba <span class="fw-bold">beberapa kali</span> hingga berhasil.<br><br>Jika tetap tidak berfungsi, silakan tunggu beberapa menit atau batalkan transaksi. Saldo kamu akan dikembalikan <span class="fw-bold">100%</span> tanpa potongan biaya.<br><br>Beberapa aplikasi seperti WhatsApp dan Telegram memiliki sistem keamanan yang ketat. Disarankan menggunakan VPN untuk membantu mengurangi deteksi keamanan.<br><br>Jika kendala masih berlanjut, kemungkinan perangkat terdeteksi mencurigakan oleh aplikasi atau kualitas nomor sedang kurang baik.</p>
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <button class="btn btn-sm btn-glass-primary" onclick="window.location.href='https://t.me/rumahotp_com';">
+                                                            <i class="bx bx-support me-1"></i> Instant Help
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-secondary">
+                                                            <i class="bx bx-history me-1"></i> Check Status
+                                                        </button>
+                                                    </div>
+                                                    <div class="tech-tags mt-3">
+                                                        <span class="tech-tag">Disarankan VPN</span>
+                                                        <span class="tech-tag">Gunakan ClonePro</span>
+                                                        <span class="tech-tag">Gunakan Clone Akun</span>
+                                                        <span class="tech-tag">Tunggu stock baru</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item rounded-4 bg-label-secondary mb-3">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed d-flex align-items-center bg-label-secondary py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#question-3">
+                                                    <div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="padding: 8px; background: var(--bs-paper-bg); color: var(--bs-orange);">
+                                                        <i class="bx bx-bug"></i>
+                                                    </div>
+                                                    <span class="fw-normal text-solid-theme flex-grow-1">Cancel tapi saldo terpotong</span>
+                                                    <i class="bx bx-chevron-down accordion-arrow"></i>
+                                                </button>
+                                            </h2>
+                                            <div id="question-3" class="accordion-collapse collapse" data-bs-parent="#question-otp">
+                                                <div class="accordion-body px-4 pb-4">
+                                                    <p class="text-solid-theme fs-8 mb-2">Silakan hubungi customer service kami dan jelaskan kendala yang dialami.<br></br>Mohon gunakan bahasa yang <span class="fw-bold">sopan</span>, karena layanan ini ditangani langsung oleh tim kami, bukan AI.<br></br>Jangan lupa sertakan ID transaksi agar saldo dapat dikembalikan 100%.</p>
+                                                    <div class="glow-alert bg-label-secondary mt-3">
+                                                        <i class="bx bx-bolt-circle me-1 align-middle"></i>
+                                                        <span class="align-middle fs-7">hanya berlaku jika <strong>code otp belum diterima sama sekali!</strong></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item rounded-4 bg-label-secondary mb-3">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed d-flex align-items-center bg-label-secondary py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#question-4">
+                                                    <div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="padding: 8px; background: var(--bs-paper-bg); color: var(--bs-orange);">
+                                                        <i class="bx bx-check-circle"></i>
+                                                    </div>
+                                                    <span class="fw-normal text-solid-theme flex-grow-1">Lupa cancel active order</span>
+                                                    <i class="bx bx-chevron-down accordion-arrow"></i>
+                                                </button>
+                                            </h2>
+                                            <div id="question-4" class="accordion-collapse collapse" data-bs-parent="#question-otp">
+                                                <div class="accordion-body px-4 pb-4">
+                                                    <p class="text-solid-theme fs-8 mb-3">Saldo Anda kami kembalikan 100% tanpa potongan biaya apapun, karena auto cancel nomor setelah 15 menit.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item rounded-4 bg-label-secondary">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed d-flex align-items-center bg-label-secondary py-3 px-4" type="button" data-bs-toggle="collapse" data-bs-target="#question-5">
+                                                    <div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="padding: 8px; background: var(--bs-paper-bg); color: var(--bs-orange);">
+                                                        <i class="bx bx-show"></i>
+                                                    </div>
+                                                    <span class="fw-normal text-solid-theme flex-grow-1">Syarat refund</span>
+                                                    <i class="bx bx-chevron-down accordion-arrow"></i>
+                                                </button>
+                                            </h2>
+                                            <div id="question-5" class="accordion-collapse collapse" data-bs-parent="#question-otp">
+                                                <div class="accordion-body px-4 pb-4">
+                                                    <p class="text-solid-theme fs-8 mb-3">Syarat refund adalah ketika Anda belum menerima nomor atau code verifikasi, kami kembalikan uang sesuai dengan harga yang dibeli, namun jika nomor atau code sudah diterima maka refund tidak dapat dilakukan.</p>
+                                                    <div class="glow-alert warning bg-label-secondary">
+                                                        <i class="bx bx-time-five me-1 align-middle"></i>
+                                                        <span class="align-middle fs-7">Berlaku ketika pesanan belum <strong>menerima sms sama sekali,</strong> maka jika sudah menerima code berarti itu sudah di luar tanggung jawab kami.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <style>
+                            :root {
+                                --primary-color: #4361ee;
+                                --primary-light: #4895ef;
+                                --danger-color: #f72585;
+                                --warning-color: #f8961e;
+                                --success-color: #43aa8b;
+                                --info-color: #4cc9f0;
+                            }
+
+                            .neo-accordion .accordion-button {
+                                border-radius: 12px !important;
+                                transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+                            }
+
+                            .neo-accordion .accordion-button:not(.collapsed) {
+                                background: rgba(255, 255, 255, 0.2);
+                                transform: translateY(-2px);
+                                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                            }
+
+                            .neo-accordion .accordion-button::after {
+                                display: none;
+                            }
+
+                            .accordion-arrow {
+                                transition: transform 0.3s ease;
+                            }
+
+                            .accordion-button:not(.collapsed) .accordion-arrow {
+                                transform: rotate(180deg);
+                            }
+
+                            .btn-glass {
+                                background: rgba(0, 0, 0, 0.1);
+                                backdrop-filter: blur(5px);
+                                color: black;
+                                border: 1px solid rgba(0, 0, 0, 0.2);
+                                transition: all 0.3s ease;
+                            }
+
+                            .btn-glass:hover {
+                                background: rgba(0, 0, 0, 0.2);
+                                transform: translateY(-2px);
+                            }
+
+                            .btn-glass-primary {
+                                background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+                                color: white;
+                                border: none;
+                                box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+                                transition: all 0.3s ease;
+                            }
+
+                            .btn-glass-primary:hover {
+                                transform: translateY(-2px);
+                                box-shadow: 0 6px 20px rgba(67, 97, 238, 0.6);
+                            }
+
+                            .glow-alert {
+                                border-left: 3px solid var(--primary-color);
+                                padding: 8px 12px;
+                                border-radius: 6px;
+                                font-size: 0.85rem;
+                            }
+
+                            .glow-alert.warning {
+                                border-left-color: var(--warning-color);
+                            }
+
+                            .tech-tags {
+                                display: flex;
+                                gap: 8px;
+                                flex-wrap: wrap;
+                            }
+
+                            .tech-tag {
+                                background: rgba(0, 0, 0, 0.1);
+                                padding: 4px 10px;
+                                border-radius: 20px;
+                                font-size: 0.75rem;
+                                backdrop-filter: blur(5px);
+                            }
+
+                            .pulse-animation {
+                                animation: pulse 2s infinite;
+                            }
+
+                            .pulse-animation-slow {
+                                animation: pulse 3s infinite;
+                            }
+
+                            @keyframes pulse {
+                                0% {
+                                    transform: scale(0.8);
+                                }
+
+                                50% {
+                                    transform: scale(0.9);
+                                }
+
+                                100% {
+                                    transform: scale(0.8);
+                                }
+                            }
+
+                            @keyframes float {
+                                0% {
+                                    transform: translateY(0px);
+                                }
+
+                                50% {
+                                    transform: translateY(-5px);
+                                }
+
+                                100% {
+                                    transform: translateY(0px);
+                                }
+                            }
+
+                            .accordion-item {
+                                box-shadow: none !important;
+                                border: none !important;
+                            }
+
+                            .accordion-button {
+                                box-shadow: none !important;
+                            }
+
+                            @media (max-width: 576px) {
+                                #orders-popup.offcanvas-bottom {
+                                    max-width: 100vw !important;
+                                    width: 100vw !important;
+                                    left: 0 !important;
+                                    right: 0 !important;
+                                    margin: 0 !important;
+                                }
+                            }
+
+                            .negara {
+                                color: var(--bs-secondary);
+                            }
+
+                            .negara.active {
+                                border-radius: 16px;
+                                background:
+                                    linear-gradient(white, white) padding-box,
+                                    linear-gradient(135deg, #ff6ec4, #7873f5) border-box !important;
+                                border: 1px solid transparent;
+                                box-shadow: 0 4px 30px rgba(120, 115, 245, 0.3);
+                                color: var(--bs-primary) !important;
+                            }
+
+                            .bg-gold {
+                                background-color: #da9100 !important;
+                            }
+
+                            .text-gold {
+                                color: #da9100 !important;
+                            }
+
+                            .border-gold {
+                                border: 1px solid #da9100 !important;
+                            }
+
+                            .bg-label-gold {
+                                background-color: rgba(255, 215, 0, 0.2) !important;
+                                color: #da9100 !important;
+                            }
+
+                            .bg-label-gold-2 {
+                                background-color: rgba(255, 215, 0, 0.1) !important;
+                                color: #da9100 !important;
+                            }
+
+                            .shadow-gold {
+                                box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important;
+                            }
+
+                            .btn-outline-gold {
+                                color: #da9100;
+                                border: 1px solid #da9100;
+                                background-color: transparent;
+                                transition: all 0.15s ease-in-out;
+                            }
+
+                            .btn-outline-gold:hover,
+                            .btn-outline-gold:focus {
+                                background-color: #da9100;
+                                color: #000;
+                                border-color: #da9100;
+                            }
+
+                            .offcanvas {
+                                transition: transform 0.3s ease;
+                                touch-action: pan-y;
+                            }
+                        </style>
+
+                        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="orders-popup" aria-labelledby="orders-popup-label" data-bs-focus="false" style="height: 80vh; min-height: 80vh; border-top-left-radius: 30px; border-top-right-radius: 30px; width: 100%; max-width: 500px; margin: 0 auto; left: 0; right: 0; background-color: var(--bs-body-bg);">
+                            <div id="orders-popup-header">
+                                <div class="d-flex justify-content-center w-100 mt-3" data-bs-dismiss="offcanvas">
+                                    <div style="width: 45px; height: 10px; background-color: #dee2e6; border-radius: 6px;"></div>
+                                </div>
+                                <div class="offcanvas-header">
+                                    <div>
+                                        <div class="fw-semibold text-solid-theme fs-6">Beli Nomor Virtual</div>
+                                        <div class="text-secondary fs-8">Pilih sebuah aplikasi dan negaranya</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offcanvas-body tab-content p-4 pt-0" data-type="service">
+                                <div class="tab-pane fade show active" id="content-apps" role="tabpanel">
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div class="input-group rounded-4" style="background-color: var(--bs-paper-bg); border: 1.5px solid var(--bs-gray-200); height: 48px;">
+                                                <span class="input-group-text border-none ps-4 pe-3" style="min-width: 44px;">
+                                                    <i class="fw-semibold bx bx-search text-secondary fs-5"></i>
+                                                </span>
+                                                <input type="text" class="input-search-apps form-control text-secondary border-none ps-0" autofocus="false" placeholder="Cari nama aplikasi..." aria-label="service" data-mode="service">
+                                                <span class="input-group-text border-none ps-3 pe-4" style="min-width: 44px;">
+                                                    <button class="btn-clear-apps btn btn-sm btn-icon rounded-circle d-none p-0 me-2" style="background-color: #bbbbbb; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;" onclick="clearSearchApps();">
+                                                        <i class="bx bx-x" style="color: white; font-size: 12px;"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="row g-4" id="content-apps-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="content-country" role="tabpanel">
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div class="card rounded-4 p-4 border" id="content-apps-selected"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="input-group rounded-3" style="background-color: var(--bs-paper-bg); border: 1.5px solid var(--bs-gray-200); height: 48px;">
+                                                <span class="input-group-text border-none ps-4 pe-3" style="min-width: 44px;">
+                                                    <i class="fw-semibold bx bx-search text-secondary fs-5"></i>
+                                                </span>
+                                                <input type="text" class="input-search-country form-control text-secondary border-none ps-0" autofocus="false" placeholder="Cari nama negara..." aria-label="Enter query..." data-mode="country">
+                                                <span class="input-group-text border-none ps-3 pe-4" style="min-width: 44px;">
+                                                    <button class="btn-clear-country btn btn-sm btn-icon rounded-circle d-none p-0 me-2" style="background-color: #bbbbbb; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;" onclick="clearSearchCountry();">
+                                                        <i class="bx bx-x" style="color: white; font-size: 12px;"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <ul class="nav nav-pills nav-sm w-100 rounded-3 bg-label-secondary p-1" style="height: 48px;" id="tab-negara" role="tablist">
+                                                    <li class="nav-item flex-fill text-center" role="presentation">
+                                                        <button class="nav-link fw-semibold rounded-3 negara w-100" style="height: 40px;" onclick="negaraShort('rate')" id="rate-tab" data-bs-toggle="tab" data-bs-target="#rate" type="button" role="tab" aria-selected="false">
+                                                            <i class="bx bx-stats me-1"></i>rate
+                                                        </button>
+                                                    </li>
+                                                    <li class="nav-item flex-fill text-center" role="presentation">
+                                                        <button class="nav-link fw-semibold rounded-3 negara w-100" style="height: 40px;" onclick="negaraShort('harga')" id="harga-tab" data-bs-toggle="tab" data-bs-target="#harga" type="button" role="tab" aria-selected="false">
+                                                            <i class="bx bx-coin-stack me-1"></i>harga
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="row g-1" id="content-country-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade bottom-slide-modal" id="operator-modal" tabindex="-1" aria-hidden="true" data-bs-focus="false">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="fw-semibold text-solid-theme fs-6">Pilih Operator Seluler</div>
+                                    </div>
+                                    <div class="modal-body" style="z-index: 3090; !important">
+                                        <div class="operator-selection d-flex flex-nowrap overflow-auto pb-2 gap-3 horizontal-scroll-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+                            .horizontal-scroll-container::-webkit-scrollbar {
+                                height: 5px;
+                            }
+
+                            .horizontal-scroll-container::-webkit-scrollbar-track {
+                                background: #f1f1f1;
+                            }
+
+                            .horizontal-scroll-container::-webkit-scrollbar-thumb {
+                                background: #888;
+                                border-radius: 5px;
+                            }
+
+                            .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+                                background: #555;
+                            }
+
+                            .modal {
+                                z-index: 3090;
+                                !important;
+                            }
+
+                            .modal-backdrop {
+                                z-index: 3089 !important;
+                            }
+
+                            .bottom-slide-modal .modal-dialog {
+                                position: fixed;
+                                bottom: 30px;
+                                left: 0;
+                                right: 0;
+                                margin: 0 auto;
+                                width: 95%;
+                                max-width: 500px;
+                                transform: translateY(100%);
+                                transition: transform 0.4s ease-out;
+                                pointer-events: none;
+                            }
+
+                            .bottom-slide-modal.show .modal-dialog {
+                                transform: translateY(0);
+                                pointer-events: auto;
+                            }
+
+                            .modal-content {
+                                border-radius: 16px;
+                                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+                            }
+                        </style>
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="floating-btn-container">
+                <div class="floating-btn">
+                    <i class='bx bx-support'></i>
+                </div>
+
+                <div class="popup-content">
+                    <div class="channel-selector">
+                        <h6 class="fw-bold text-solid-theme">Contact Support</h6>
+                        <div class="channel-options">
+                            <div class="channel-option active" data-channel="support">
+                                <i class='bx bx-support'></i>
+                                <span>Support</span>
+                            </div>
+                            <div class="channel-option" data-channel="channel">
+                                <i class='bx bx-group'></i>
+                                <span>Channel</span>
+                            </div>
+                            <div class="channel-option" data-channel="bot">
+                                <i class='bx bx-bot'></i>
+                                <span>Chatbot</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-options" id="support-floating">
+                        <div class="contact-header">
+                            <h6 class="fw-semibold text-solid-theme fs-6">Contact Options</h6>
+                        </div>
+
+                        <a href="https://t.me/rumahotp_com" class="contact-btn telegram-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bxl-telegram'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">Telegram</span>
+                                <span class="contact-desc">Quick chat support</span>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/639105549455" class="contact-btn whatsapp-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bxl-whatsapp'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">WhatsApp</span>
+                                <span class="contact-desc">Now inactive ( suspend )</span>
+                            </div>
+                        </a>
+
+                        <div class="contact-btn email-btn">
+                            <div class="contact-icon">
+                                <i class='bx bx-envelope'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">Email</span>
+                                <span class="contact-desc"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ee9c9b838f86819a9eae9d9a8f978681838bc08287">[email&#160;protected]</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-options d-none" id="channel-floating">
+                        <div class="contact-header">
+                            <h6 class="fw-semibold text-solid-theme fs-6">Contact Options</h6>
+                        </div>
+
+                        <a href="https://t.me/inforumahotp" class="contact-btn telegram-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bx-group'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">Telegram Channel</span>
+                                <span class="contact-desc">Sharing information</span>
+                            </div>
+                        </a>
+
+                        <a href="https://whatsapp.com/channel/0029Vb89ifxH5JM0fh2VvM2U" class="contact-btn whatsapp-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bx-group'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">WhatsApp Channel</span>
+                                <span class="contact-desc">Sharing information</span>
+                            </div>
+                        </a>
+
+                        <a href="https://t.me/rumahotpcallback" class="contact-btn telegram-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bx-server'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">Telegram Callback</span>
+                                <span class="contact-desc">Callback notifikasi orders</span>
+                            </div>
+                        </a>
+
+                        <a href="https://whatsapp.com/channel/0029VakCxRGGJP8Ca4lQPQ2D" class="contact-btn whatsapp-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bx-server'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">WhatsApp Callback</span>
+                                <span class="contact-desc">Callback notifikasi orders</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contact-options d-none" id="bot-floating">
+                        <div class="contact-header">
+                            <h6 class="fw-semibold text-solid-theme fs-6">Contact Options</h6>
+                        </div>
+
+                        <a href="https://t.me/rumahotp_bot" class="contact-btn telegram-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bxl-telegram'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">Telegram</span>
+                                <span class="contact-desc">Quick chat bot ( inactive )</span>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/639105549455" class="contact-btn whatsapp-btn" target="_blank">
+                            <div class="contact-icon">
+                                <i class='bx bxl-whatsapp'></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-title">WhatsApp</span>
+                                <span class="contact-desc">Quick chat bot ( suspend )</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="support-hours">
+                        <p><i class='bx bx-time'></i> Aktif: 09:00 - 21:00 (kecuali kamis/jumat)</p>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .floating-btn-container {
+                    position: fixed;
+                    bottom: 100px;
+                    right: 20px;
+                    z-index: 1000;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+
+                .floating-btn {
+                    width: 50px;
+                    height: 50px;
+                    background: var(--bs-primary, #0d6efd);
+                    border-radius: 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    cursor: pointer;
+                    font-size: 28px;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    z-index: 1001;
+                }
+
+                .floating-btn i {
+                    color: white;
+                    font-size: 24px;
+                    transition: transform 0.3s ease;
+                }
+
+                .floating-btn.active i {
+                    transform: rotate(135deg);
+                }
+
+                .popup-content {
+                    position: absolute;
+                    bottom: 70px;
+                    right: 0;
+                    width: 320px;
+                    background: var(--bs-paper-bg);
+                    border-radius: 16px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                    opacity: 0;
+                    transform: translateY(20px);
+                    pointer-events: none;
+                    transition: all 0.3s ease;
+                    overflow: hidden;
+                }
+
+                .floating-btn.active ~ .popup-content {
+                    opacity: 1;
+                    transform: translateY(0);
+                    pointer-events: auto;
+                }
+
+                .channel-selector {
+                    padding: 20px 20px 15px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .channel-selector h3 {
+                    margin: 0 0 15px;
+                    font-size: 18px;
+                    color: #333;
+                }
+
+                .channel-options {
+                    display: flex;
+                    gap: 10px;
+                }
+
+                .channel-option {
+                    flex: 1;
+                    padding: 10px;
+                    border-radius: 10px;
+                    background: var(--bs-body-bg);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+
+                .channel-option.active {
+                    background: #e7f1ff;
+                    color: var(--bs-primary, #0d6efd);
+                }
+
+                .channel-option i {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+
+                .channel-option span {
+                    font-size: 12px;
+                    text-align: center;
+                }
+
+                .contact-options {
+                    padding: 15px 20px;
+                }
+
+                .contact-header {
+                    margin-bottom: 15px;
+                }
+
+                .contact-header h4 {
+                    margin: 0 0 5px;
+                    font-size: 16px;
+                    color: #333;
+                }
+
+                .contact-header p {
+                    margin: 0;
+                    font-size: 13px;
+                    color: #666;
+                }
+
+                .contact-btn {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 15px;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    text-decoration: none;
+                    color: inherit;
+                    transition: all 0.2s ease;
+                    cursor: pointer;
+                }
+
+                .contact-btn:hover {
+                    background: #f8f9fa;
+                    transform: translateY(-2px);
+                }
+
+                .contact-icon {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 15px;
+                    font-size: 20px;
+                    color: white;
+                }
+
+                .whatsapp-btn .contact-icon {
+                    background: #25D366;
+                }
+
+                .telegram-btn .contact-icon {
+                    background: #0088cc;
+                }
+
+                .email-btn .contact-icon {
+                    background: #ea4335;
+                }
+
+                .phone-btn .contact-icon {
+                    background: #34a853;
+                }
+
+                .contact-info {
+                    flex: 1;
+                }
+
+                .contact-title {
+                    display: block;
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin-bottom: 3px;
+                    color: var(--bs-theme-color);
+                }
+
+                .contact-desc {
+                    display: block;
+                    font-size: 12px;
+                }
+
+                .support-hours {
+                    padding: 15px 20px;
+                    background: var(--bs-body-bg);
+                    border-top: 1px solid #f0f0f0;
+                    text-align: center;
+                }
+
+                .support-hours p {
+                    margin: 0;
+                    font-size: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .support-hours i {
+                    margin-right: 5px;
+                }
+            </style>
+
+            <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+                const btn = document.querySelector('.floating-btn');
+                const icon = btn.querySelector('i');
+                const channelOptions = document.querySelectorAll('.channel-option');
+                const contactOptions = document.querySelectorAll('.contact-options');
+
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('active');
+                    icon.classList.toggle('bx-support');
+                    icon.classList.toggle('bx-x');
+                });
+
+                channelOptions.forEach(option => {
+                    option.addEventListener('click', () => {
+                        btn.classList.toggle('active');
+                        icon.classList.toggle('bx-support');
+                        icon.classList.toggle('bx-x');
+                        setTimeout(() => {
+                            channelOptions.forEach(opt => opt.classList.remove('active'));
+                            contactOptions.forEach(opt => opt.classList.add('d-none'));
+                            option.classList.add('active');
+                            document.getElementById(`${option.dataset.channel}-floating`).classList.remove('d-none');
+                            setTimeout(() => {
+                                btn.classList.toggle('active');
+                                icon.classList.toggle('bx-support');
+                                icon.classList.toggle('bx-x');
+                            }, 1000)
+                        }, 1000)
+                    });
+                });
+            </script>
+            <nav class="navbar navbar-expand fixed-bottom d-block sneat-bottom-navbar">
+                <div class="container-fluid px-0">
+                    <ul class="navbar-nav sneat-bottom-nav w-100">
+                        <div class="d-flex justify-content-around flex-grow-1 pe-4">
+                            <li class="nav-item">
+                                <a class="sneat-nav-link" href="../../dashboard" data-target="../../dashboard">
+                                    <i class='bx bx-home-2'></i>
+                                    <span class="sneat-nav-text">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item me-4">
+                                <a class="sneat-nav-link" href="../../client/topup" data-target="../../client/topup">
+                                    <i class='bx bx-ewallet'></i>
+                                    <span class="sneat-nav-text">Deposit</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <li class="nav-item fab-item">
+                            <a class="sneat-nav-link fab-link" href="../../client/virtual-number" data-target="../../client/virtual-number">
+                                <img src="https://cdn.rumahotp.com/assets/img/icons/misc/shop.png" width="32" height="32" alt="Order" class="fab-icon">
+                            </a>
+                        </li>
+
+                        <div class="d-flex justify-content-around flex-grow-1 ps-4">
+                            <li class="nav-item ms-4">
+                                <a class="sneat-nav-link" href="../../client/activity" data-target="../../client/activity">
+                                    <i class='bx bx-activity'></i>
+                                    <span class="sneat-nav-text">Activity</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="sneat-nav-link" href="../../client/profile" data-target="../../client/profile">
+                                    <i class='bx bx-user-alt'></i>
+                                    <span class="sneat-nav-text">Profile</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@vreden/toast/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/popper/popper.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/bootstrap.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/@algolia/autocomplete-js.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/pickr/pickr.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/vendor/js/menu.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/main.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/otpku/subscribe-manage.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/otpku/popup-manage.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/otpku/orders-manage.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/otpku/socket-manage.js"></script>
+    <script src="https://cdn.rumahotp.com/assets/js/otpku/initialization.js"></script>
+    <script>
+    const org_element_header = document.getElementById('orders-popup-header');
+    const org_element = document.getElementById('orders-popup');
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+
+    const org_height = org_element.offsetHeight;
+    org_element.style.height = `${org_height}px`;
+
+    org_element_header.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+        dragging = true;
+        org_element.style.transition = 'none';
+    });
+
+    org_element_header.addEventListener('touchmove', (e) => {
+        if (!dragging) return;
+        currentY = e.touches[0].clientY;
+        const deltaY = currentY - startY;
+
+        if (deltaY > 0) {
+            const progress = Math.min(deltaY / 200, 1);
+            const scale = 1 - (progress * 0.05);
+            org_element.style.transform = `translateY(${deltaY}px) scale(${scale})`;
+            org_element.style.opacity = (1 - progress * 0.3).toString();
+        }
+    });
+
+    org_element_header.addEventListener('touchend', () => {
+        dragging = false;
+        const deltaY = currentY - startY;
+        org_element.style.transition = 'all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1)';
+
+        if (deltaY > 150) {
+            org_element.style.transform = 'translateY(100%) scale(0.95)';
+            org_element.style.opacity = '0';
+
+            setTimeout(() => {
+                const offcanvas = bootstrap.Offcanvas.getInstance(org_element);
+                offcanvas.hide();
+                setTimeout(() => {
+                    org_element.style.transform = '';
+                    org_element.style.opacity = '';
+                    org_element.style.transition = '';
+                }, 50);
+            }, 200);
+        } else {
+            org_element.style.transform = '';
+            org_element.style.opacity = '';
+        }
+    });
+
+    org_element.addEventListener('show.bs.offcanvas', () => {
+        org_element.style.height = `${org_height}px`;
+        org_element.style.transform = '';
+        org_element.style.opacity = '';
+    });
+
+    org_element.addEventListener('hidden.bs.offcanvas', () => {
+        org_element.style.transform = '';
+        org_element.style.opacity = '';
+        org_element.style.transition = '';
+    });
+    </script>
+</body>
+
+</html>
+
+<!-- © 2025 • VredenCloud -->
